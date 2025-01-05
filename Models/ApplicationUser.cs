@@ -1,4 +1,6 @@
-﻿namespace MyPortfolio.Models
+﻿using MyPortfolio.Models.DTO;
+
+namespace MyPortfolio.Models
 {
     public class ApplicationUser
     {
@@ -17,5 +19,6 @@
         public string ProfilImgUrl { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
+        public IEnumerable<Skill> Skills { get; set; }
     }
 }

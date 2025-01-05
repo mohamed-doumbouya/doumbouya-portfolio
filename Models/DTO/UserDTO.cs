@@ -17,5 +17,6 @@
         public string Summary { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
+        public IEnumerable<SkillDTO> Skills { get; set; }
     }
 }

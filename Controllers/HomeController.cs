@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.Models;
+using MyPortfolio.Models.DTO;
 using MyPortfolio.Models.ViewModels;
 
 namespace MyPortfolio.Controllers
@@ -31,7 +32,25 @@ namespace MyPortfolio.Controllers
                     Phone = "+123 456 7890",
                     Profession = "Backend Developer",
                     Summary = "Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\nmagna aliqua.",
-                    Freelance = "Available"
+                    Freelance = "Available",
+                    Skills = new List<SkillDTO>
+                    {
+                        new SkillDTO
+                        {
+                            Name = "HTML",
+                            Percentage = 100
+                        },
+                        new SkillDTO
+                        {
+                            Name = "CSS",
+                            Percentage = 90
+                        },
+                        new SkillDTO
+                        {
+                            Name = "JavaScript",
+                            Percentage = 75
+                        }
+                    }
                 }
             };
 
