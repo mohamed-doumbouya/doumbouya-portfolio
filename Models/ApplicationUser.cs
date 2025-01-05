@@ -1,6 +1,4 @@
-﻿using MyPortfolio.Models.DTO;
-
-namespace MyPortfolio.Models
+﻿namespace MyPortfolio.Models
 {
     public class ApplicationUser
     {
@@ -20,5 +18,6 @@ namespace MyPortfolio.Models
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public IEnumerable<Skill> Skills { get; set; }
+        public Resume Resume { get; set; }
     }
 }

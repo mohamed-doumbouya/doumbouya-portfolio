@@ -19,7 +19,7 @@ namespace MyPortfolio.Controllers
         {
             UserInfoViewModel userInfo = new UserInfoViewModel
             {
-                UserDTO = new Models.DTO.UserDTO
+                UserDTO = new UserDTO
                 {
                     FirstName = "Mohamed",
                     LastName = "DOUMBOUYA",
@@ -50,6 +50,10 @@ namespace MyPortfolio.Controllers
                             Name = "JavaScript",
                             Percentage = 75
                         }
+                    },
+                    Resume = new ResumeDTO
+                    {
+                        Summary = "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable."
                     }
                 }
             };

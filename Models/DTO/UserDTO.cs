@@ -18,5 +18,6 @@
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
         public IEnumerable<SkillDTO> Skills { get; set; }
+        public ResumeDTO Resume { get; set; }
     }
 }
