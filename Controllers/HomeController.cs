@@ -27,12 +27,12 @@ namespace MyPortfolio.Controllers
                     Country = "France",
                     Email = "mohamed.doumbouya1112@gmail.com",
                     Birthday = new DateTime(1994, 9, 16),
-                    Degree = "Software Engineer",
+                    Degree = "Ingénieur Logiciel",
                     Website = "www.example.com",
                     Phone = "+123 456 7890",
                     Profession = "Backend Developer",
                     Summary = "Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\nmagna aliqua.",
-                    Freelance = "Available",
+                    Freelance = "Disponible",
                     Skills = new List<SkillDTO>
                     {
                         new SkillDTO
@@ -86,6 +86,65 @@ namespace MyPortfolio.Controllers
                                StartDate = new DateTime(2016, 11, 2),
                                EndDate = new DateTime(2019, 06, 1)
                            }
+                        },
+                        Experiences = new List<ExperienceDTO>
+                        {
+                            new ExperienceDTO
+                            {
+                                Role = "Developpeur FullStack (.NET - Ruby)",
+                                EntrepriseName = "Akka Technology",
+                                City = "Casablanca",
+                                Country = "Maroc",
+                                StartDate = new DateTime(2019, 1, 1),
+                                EndDate = new DateTime(2022, 10, 06),
+                                Missions = new List<MissionDTO>
+                                {
+                                    new MissionDTO
+                                    {
+                                        Description = "Lead in the design, development, and implementation of the graphic, layout, and production communication materials"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
+                                    }
+                                }
+                            },
+                            new ExperienceDTO
+                            {
+                                Role = "Consultant .NET/C#",
+                                EntrepriseName = "Groupe BPCE",
+                                City = "Paris",
+                                Country = "France",
+                                StartDate = new DateTime(2022, 1, 1),
+                                EndDate = null,
+                                Missions = new List<MissionDTO>
+                                {
+                                    new MissionDTO
+                                    {
+                                        Description = "Lead in the design, development, and implementation of the graphic, layout, and production communication materials"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design"
+                                    },
+                                    new MissionDTO
+                                    {
+                                        Description = "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
+                                    }
+                                }
+                            }
                         }
                     }
                 }

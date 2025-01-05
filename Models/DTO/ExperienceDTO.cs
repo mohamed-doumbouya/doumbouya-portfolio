@@ -1,14 +1,13 @@
-﻿namespace MyPortfolio.Models
+﻿namespace MyPortfolio.Models.DTO
 {
-    public class Experience
+    public class ExperienceDTO
     {
-        public int Id { get; set; }
         public string EntrepriseName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
         public string Role { get; set; }
-        public IEnumerable<Mission> Missions { get; set; }
+        public IEnumerable<MissionDTO> Missions { get; set; }
     }
 }

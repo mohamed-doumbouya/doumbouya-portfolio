@@ -4,6 +4,6 @@
     {
         public string Summary { get; set; }
         public IEnumerable<EducationDTO> Educations { get; set; }
-        public IEnumerable<Experience> Experiences { get; set; }
+        public IEnumerable<ExperienceDTO> Experiences { get; set; }
     }
 }

@@ -192,9 +192,9 @@
                     <div class="resume-item">
                         <h4>@education.Certification</h4>
                         <h5>
-                            @education.StartDate.ToString("dd MMMM yyyy") - @if (@education.EndDate.HasValue)
+                            @education.StartDate.Year - @if (@education.EndDate.HasValue)
                             {
-                                @education.EndDate.Value.ToString("dd MMMM yyyy")
+                                @education.EndDate.Value.Year
                             }
                             else
                             {
@@ -211,29 +211,32 @@
 
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="resume-title">Professional Experience</h3>
-                <div class="resume-item">
-                    <h4>Senior graphic design specialist</h4>
-                    <h5>2019 - Present</h5>
-                    <p><em>Experion, New York, NY </em></p>
-                    <ul>
-                        <li>Lead in the design, development, and implementation of the graphic, layout, and production communication materials</li>
-                        <li>Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project. </li>
-                        <li>Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design</li>
-                        <li>Oversee the efficient use of production project budgets ranging from $2,000 - $25,000</li>
-                    </ul>
-                </div><!-- Edn Resume Item -->
+                @foreach(var experience in Model.UserDTO.Resume.Experiences)
+                {
+                    <div class="resume-item">
+                        <h4>@experience.Role</h4>
+                        <h5>
+                            @experience.StartDate.Year - @if (@experience.EndDate.HasValue)
+                            {
+                                @experience.EndDate.Value.Year
+                            }
+                            
+                            @{
+                                var message = new string("Présent");
+                                @message
+                            } 
+                        </h5>
+                        <p><em>@experience.EntrepriseName, @experience.City, @experience.Country </em></p>
+                        <ul>
+                            @foreach(var mission in experience.Missions)
+                            {
+                                <li>@mission.Description</li>
+                            }
+                        </ul>
+                    </div>
 
-                <div class="resume-item">
-                    <h4>Graphic design specialist</h4>
-                    <h5>2017 - 2018</h5>
-                    <p><em>Stepping Stone Advertising, New York, NY</em></p>
-                    <ul>
-                        <li>Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).</li>
-                        <li>Managed up to 5 projects or tasks at a given time while under pressure</li>
-                        <li>Recommended and consulted with clients on the most appropriate graphic design</li>
-                        <li>Created 4+ design presentations and proposals a month for clients and account managers</li>
-                    </ul>
-                </div><!-- Edn Resume Item -->
+                    <!-- Edn Resume Item -->
+                }
 
             </div>
 
@@ -624,16 +627,16 @@
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                         <i class="bi bi-telephone flex-shrink-0"></i>
                         <div>
-                            <h3>Call Us</h3>
-                            <p>+1 5589 55488 55</p>
+                            <h3>Call Me</h3>
+                            <p>@Model.UserDTO.Phone</p>
                         </div>
                     </div><!-- End Info Item -->
 
                     <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                         <i class="bi bi-envelope flex-shrink-0"></i>
                         <div>
-                            <h3>Email Us</h3>
-                            <p>info@example.com</p>
+                            <h3>Email Me</h3>
+                            <p>@Model.UserDTO.Email</p>
                         </div>
                     </div><!-- End Info Item -->
 
