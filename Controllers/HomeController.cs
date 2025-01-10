@@ -20,7 +20,7 @@ namespace MyPortfolio.Controllers
 
         public async Task<IActionResult> Index()
         {
-            UserInfoViewModel userInfo = _userService.GetUserInformations();
+            UserInfoViewModel userInfo = _userService.GetUserInformationsAsync();
 
             return View(userInfo);
         }

@@ -4,6 +4,6 @@ namespace MyPortfolio.Services.Interfaces
 {
     public interface IUserService
     {
-        UserInfoViewModel GetUserInformations();
+        Task<UserInfoViewModel> GetUserInformationsAsync();
     }
 }
