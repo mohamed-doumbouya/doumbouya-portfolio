@@ -197,6 +197,34 @@ namespace MyPortfolio.Controllers
                             Summary = "Lorem ipsum, dolor sit amet consectetur",
                             StartDate = new DateTime(2016, 01, 15)
                         }
+                    },
+                    Services = new List<ServiceDTO>
+                    {
+                        new ServiceDTO
+                        {
+                            Title = "Magnam dolores",
+                            Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                        },
+                        new ServiceDTO
+                        {
+                            Title = "Magnam dolores",
+                            Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                        },
+                        new ServiceDTO
+                        {
+                            Title = "Magnam dolores",
+                            Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                        },
+                        new ServiceDTO
+                        {
+                            Title = "Magnam dolores",
+                            Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                        },
+                        new ServiceDTO
+                        {
+                            Title = "Magnam dolores",
+                            Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                        }
                     }
                 }
             };
