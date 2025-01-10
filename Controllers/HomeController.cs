@@ -30,7 +30,7 @@ namespace MyPortfolio.Controllers
                     Degree = "Ingénieur Logiciel",
                     Website = "www.example.com",
                     Phone = "+123 456 7890",
-                    Profession = "Backend Developer",
+                    Profession = "Ingénieur Logiciel",
                     Summary = "Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\nmagna aliqua.",
                     Freelance = "Disponible",
                     Skills = new List<SkillDTO>
@@ -145,6 +145,57 @@ namespace MyPortfolio.Controllers
                                     }
                                 }
                             }
+                        }
+                    },
+                    Projects = new List<ProjectDTO>
+                    {
+                        new ProjectDTO
+                        {
+                            Category = "Web Design",
+                            ProjectURL = "www.example.com",
+                            ImageUrl = "~/images/portfolio/app-1.jpg",
+                            Client = "ASU Company",
+                            Title = "App 1",
+                            Name = "Project information",
+                            Description = "Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+                            Summary = "Lorem ipsum, dolor sit amet consectetur",
+                            StartDate = new DateTime(2016, 01, 15)
+                        },
+                        new ProjectDTO
+                        {
+                            Category = "Web Design",
+                            ProjectURL = "www.example.com",
+                            ImageUrl = "~/images/portfolio/product-1.jpg",
+                            Client = "ASU Company",
+                            Title = "Product 1",
+                            Name = "Project information",
+                            Description = "Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+                            Summary = "Lorem ipsum, dolor sit amet consectetur",
+                            StartDate = new DateTime(2016, 01, 15)
+                        },
+                        new ProjectDTO
+                        {
+                            Category = "Web Design",
+                            ProjectURL = "www.example.com",
+                            ImageUrl = "~/images/portfolio/branding-1.jpg",
+                            Client = "ASU Company",
+                            Title = "Branding 1",
+                            Name = "Project information",
+                            Description = "Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+                            Summary = "Lorem ipsum, dolor sit amet consectetur",
+                            StartDate = new DateTime(2016, 01, 15)
+                        },
+                        new ProjectDTO
+                        {
+                            Category = "Web Design",
+                            ProjectURL = "www.example.com",
+                            ImageUrl = "~/images/portfolio/books-1.jpg",
+                            Client = "ASU Company",
+                            Title = "Books 1",
+                            Name = "Books 1",
+                            Description = "Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.",
+                            Summary = "Lorem ipsum, dolor sit amet consectetur",
+                            StartDate = new DateTime(2016, 01, 15)
                         }
                     }
                 }
