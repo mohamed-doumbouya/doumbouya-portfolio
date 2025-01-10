@@ -225,6 +225,16 @@ namespace MyPortfolio.Controllers
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
                         }
+                    },
+                    Testimonials = new List<TestimonialDTO> 
+                    { 
+                        new TestimonialDTO
+                        {
+                            Author = "Jena Karlis",
+                            AuthorImage = "~/images/testimonials/testimonials-2.jpg",
+                            Content = "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
+                            AuthorProfession = "Store Owner"
+                        }
                     }
                 }
             };

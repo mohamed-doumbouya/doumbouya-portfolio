@@ -20,6 +20,7 @@
         public IEnumerable<SkillDTO> Skills { get; set; }
         public IEnumerable<ProjectDTO> Projects { get; set; }
         public IEnumerable<ServiceDTO> Services { get; set; }
+        public IEnumerable<TestimonialDTO> Testimonials { get; set; }
         public ResumeDTO Resume { get; set; }
     }
 }
