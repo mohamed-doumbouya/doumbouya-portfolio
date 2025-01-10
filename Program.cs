@@ -1,3 +1,6 @@
+using MyPortfolio.Services;
+using MyPortfolio.Services.Interfaces;
+
 namespace MyPortfolio
 {
     public class Program
@@ -8,6 +11,7 @@ namespace MyPortfolio
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 
