@@ -7,11 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Models\Testimonial.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Datas\Repositories\" />
+    <ProjectReference Include="..\MyPortfolio.Domain\MyPortfolio.Domain.csproj" />
   </ItemGroup>
 
 </Project>

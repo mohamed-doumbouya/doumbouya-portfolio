@@ -1,5 +1,5 @@
-using MyPortfolio.Services;
-using MyPortfolio.Services.Interfaces;
+using MyPortfolio.Domain.Interfaces.Services;
+using MyPortfolio.Domain.Services;
 
 namespace MyPortfolio
 {

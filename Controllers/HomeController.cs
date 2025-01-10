@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyPortfolio.Models;
-using MyPortfolio.Models.ViewModels;
-using MyPortfolio.Services.Interfaces;
-using System.Diagnostics;
+using MyPortfolio.Domain.Interfaces.Services;
+using MyPortfolio.Domain.Models.ViewModels;
 
 namespace MyPortfolio.Controllers
 {
@@ -22,17 +20,6 @@ namespace MyPortfolio.Controllers
             UserInfoViewModel userInfo = await _userService.GetUserInformationsAsync();
 
             return View(userInfo);
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
