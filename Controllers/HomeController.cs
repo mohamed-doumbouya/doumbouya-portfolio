@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MyPortfolio.Models;
-using MyPortfolio.Models.DTO;
 using MyPortfolio.Models.ViewModels;
 using MyPortfolio.Services.Interfaces;
 using System.Diagnostics;
@@ -20,7 +19,7 @@ namespace MyPortfolio.Controllers
 
         public async Task<IActionResult> Index()
         {
-            UserInfoViewModel userInfo = _userService.GetUserInformationsAsync();
+            UserInfoViewModel userInfo = await _userService.GetUserInformationsAsync();
 
             return View(userInfo);
         }

@@ -12,6 +12,13 @@ namespace MyPortfolio
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<ISkillService, SkillService>();
+            builder.Services.AddScoped<IResumeService, ResumeService>();
+            builder.Services.AddScoped<IProjectService, ProjectService>();
+            builder.Services.AddScoped<IServiceHandler, ServiceHandler>();
+            builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+            builder.Services.AddScoped<IEducationService, EducationService>();
+            builder.Services.AddScoped<IExperienceService, ExperienceService>();
 
             var app = builder.Build();
 

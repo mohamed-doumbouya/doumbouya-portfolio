@@ -4,13 +4,6 @@ namespace MyPortfolio.Services
 {
     public class ExperienceService : IExperienceService
     {
-        private readonly IMissionService _missionService;
-
-        public ExperienceService(IMissionService missionService)
-        {
-            _missionService = missionService;
-        }
-
         public async Task<IEnumerable<ExperienceDTO>> GetUserExperiences()
         {
             var experiences = new List<ExperienceDTO>
