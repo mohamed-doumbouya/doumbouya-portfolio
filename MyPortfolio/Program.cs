@@ -1,5 +1,7 @@
+using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Services;
+using MyPortfolio.Infrastructure.Repositories;
 
 namespace MyPortfolio
 {
@@ -19,6 +21,9 @@ namespace MyPortfolio
             builder.Services.AddScoped<ITestimonialService, TestimonialService>();
             builder.Services.AddScoped<IEducationService, EducationService>();
             builder.Services.AddScoped<IExperienceService, ExperienceService>();
+
+
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             var app = builder.Build();
 
