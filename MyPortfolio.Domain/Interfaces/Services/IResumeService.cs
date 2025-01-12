@@ -5,6 +5,6 @@ namespace MyPortfolio.Domain.Interfaces.Services
 {
     public interface IResumeService
     {
-        Task<ResumeDto> GetUserResumeAsync();
+        Task<ResumeDto> GetResumeByUserIdAsync(string userId);
     }
 }

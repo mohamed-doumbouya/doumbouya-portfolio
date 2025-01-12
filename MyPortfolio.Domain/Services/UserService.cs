@@ -62,7 +62,7 @@ namespace MyPortfolio.Domain.Services
                     Summary = user.Summary,
                     Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible",
                     Skills = await _skillService.GetSkillsByUserIdAsync("userId"),
-                    Resume = await _resumeService.GetUserResumeAsync(),
+                    Resume = await _resumeService.GetResumeByUserIdAsync("userId"),
                     Projects = await _projectService.GetUserProjectsAsync(),
                     Services = await _serviceHandler.GetUserServicesAsync(),
                     Testimonials = await _testimonialService.GetUserTestimonials()

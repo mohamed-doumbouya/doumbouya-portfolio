@@ -25,6 +25,7 @@ namespace MyPortfolio
 
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
+            builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
 
             var app = builder.Build();
 
