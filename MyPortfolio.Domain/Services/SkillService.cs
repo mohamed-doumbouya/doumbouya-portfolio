@@ -1,34 +1,30 @@
 ﻿using MyPortfolio.Domain.DTO;
+using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyPortfolio.Domain.Services
 {
     public class SkillService : ISkillService
     {
-        public async Task<IEnumerable<SkillDto>> GetUserSkillsAsync()
-        {
-            var skills = new List<SkillDto>
-                    {
-                        new SkillDto
-                        {
-                            Name = "HTML",
-                            Percentage = 100
-                        },
-                        new SkillDto
-                        {
-                            Name = "CSS",
-                            Percentage = 90
-                        },
-                        new SkillDto
-                        {
-                            Name = "JavaScript",
-                            Percentage = 75
-                        }
-            };
+        private readonly ISkillRepository _skillRepository;
 
-            return await Task.FromResult(skills);
+        public SkillService(ISkillRepository skillRepository)
+        {
+            _skillRepository = skillRepository;
+        }
+
+        public async Task<IEnumerable<SkillDto>> GetSkillsByUserIdAsync(string userId)
+        {
+            var userSkills = await _skillRepository.GetSkillsByUserIdAsync(userId);
+
+            return userSkills.Select(skill => new SkillDto
+            {
+                Name = skill.Name,
+                Percentage = skill.Percentage
+            });
         }
     }
 }

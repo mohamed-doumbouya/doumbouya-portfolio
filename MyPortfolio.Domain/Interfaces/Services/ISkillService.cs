@@ -6,6 +6,6 @@ namespace MyPortfolio.Domain.Interfaces.Services
 {
     public interface ISkillService
     {
-        Task<IEnumerable<SkillDto>> GetUserSkillsAsync();
+        Task<IEnumerable<SkillDto>> GetSkillsByUserIdAsync(string userId);
     }
 }
