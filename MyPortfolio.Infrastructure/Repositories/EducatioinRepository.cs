@@ -4,6 +4,6 @@ namespace MyPortfolio.Infrastructure.Repositories
 {
     public class EducatioinRepository : IEducatioinRepository
     {
-        ///rezraezezezrzerzrrza
+        
     }
 }
