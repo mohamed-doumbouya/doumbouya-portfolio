@@ -259,6 +259,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                         }
                     }
                 };
+
+                context.Users.Add(user);
+                context.SaveChanges();
             }
         }
     }
