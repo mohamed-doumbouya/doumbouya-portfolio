@@ -12,5 +12,9 @@ namespace MyPortfolio.Domain.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Description { get; set; }
+
+        //Relation
+        public int ResumeId { get; set; }
+        public Resume Resume { get; set; }
     }
 }

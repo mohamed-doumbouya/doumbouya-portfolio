@@ -12,6 +12,10 @@ namespace MyPortfolio.Domain.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string Role { get; set; }
-        public IEnumerable<Mission> Missions { get; set; }
+
+        //Relation
+        public int ResumeId { get; set; }
+        public Resume Resume { get; set; }
+        public ICollection<Mission> Missions { get; set; }
     }
 }

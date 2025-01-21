@@ -12,8 +12,8 @@ namespace MyPortfolio.Domain.DTO
         public string Client { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string ImageUrl { get; set; }
-        public string ProjectURL { get; set; }
+        public string? ImageUrl { get; set; }
+        public string? ProjectURL { get; set; }
         public string Category { get; set; }
         public string Summary { get; set; }
         public IEnumerable<TechnologyDto> Technologies { get; set; }

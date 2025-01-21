@@ -20,7 +20,12 @@ namespace MyPortfolio.Domain.Models
         public string ProfilImgUrl { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public IEnumerable<Skill> Skills { get; set; }
+
+        // Relation
+        public ICollection<Skill> Skills { get; set; }
+        public ICollection<Project> Projects { get; set; }
+        public ICollection<Service> Services { get; set; }
+        public ICollection<Testimonial> Testimonials { get; set; }
         public Resume Resume { get; set; }
     }
 }

@@ -8,5 +8,9 @@
         public string AuthorImage { get; set; }
         public string Content { get; set; }
         public int Rating { get; set; }
+
+        //Relation
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }

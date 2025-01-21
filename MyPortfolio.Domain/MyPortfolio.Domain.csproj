@@ -5,12 +5,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Models\Testimonial.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Models\Testimonial.cs" />
-  </ItemGroup>
-
 </Project>

@@ -20,10 +20,12 @@ namespace MyPortfolio.Domain.DTO
         public string Summary { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime UpdateDate { get; set; }
-        public IEnumerable<SkillDto> Skills { get; set; }
-        public IEnumerable<ProjectDto> Projects { get; set; }
-        public IEnumerable<ServiceDto> Services { get; set; }
-        public IEnumerable<TestimonialDto> Testimonials { get; set; }
+
+        // Relation
+        public ICollection<SkillDto> Skills { get; set; }
+        public ICollection<ProjectDto> Projects { get; set; }
+        public ICollection<ServiceDto> Services { get; set; }
+        public ICollection<TestimonialDto> Testimonials { get; set; }
         public ResumeDto Resume { get; set; }
     }
 }
