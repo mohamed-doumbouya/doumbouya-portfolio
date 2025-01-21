@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Services;
+using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories;
 
 namespace MyPortfolio
@@ -11,7 +13,7 @@ namespace MyPortfolio
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            #region Services
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<ISkillService, SkillService>();
@@ -21,11 +23,17 @@ namespace MyPortfolio
             builder.Services.AddScoped<ITestimonialService, TestimonialService>();
             builder.Services.AddScoped<IEducationService, EducationService>();
             builder.Services.AddScoped<IExperienceService, ExperienceService>();
+            #endregion Services
 
-
+            #region Repositories
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
             builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
+            #endregion Repositories
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+            );
 
             var app = builder.Build();
 
