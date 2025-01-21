@@ -3,6 +3,7 @@ using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models.ViewModels;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyPortfolio.Domain.Services
@@ -46,18 +47,22 @@ namespace MyPortfolio.Domain.Services
 
             if(user != null)
             {
+                var adress = user.Adresses.FirstOrDefault(a => a.IsActive);
                 var userInfo = new UserInfoViewModel();
                 userInfo.UserDTO = new UserDto
                 {
                     FirstName = user.FirstName,
                     LastName = user.LastName,
-                    City = user.City,
-                    Country = user.Country,
+                    Adress = new AddressDto 
+                    { 
+                        City = adress?.City,
+                        Country = adress?.Country
+                    },
                     Email = user.Email,
                     Birthday = user.Birthday,
                     Degree = user.Degree,
                     Website = user.Website,
-                    Phone = user.Phone,
+                    Phone = user.PhoneNumber,
                     Profession = user.Profession,
                     Summary = user.Summary,
                     Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible",

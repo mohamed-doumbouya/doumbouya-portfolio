@@ -10,9 +10,7 @@ namespace MyPortfolio.Domain.DTO
         public string Website { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Country { get; set; }
         public string Degree { get; set; }
-        public string City { get; set; }
         public DateTime Birthday { get; set; }
         public int Age { get; set; }
         public string Freelance { get; set; }
@@ -26,6 +24,7 @@ namespace MyPortfolio.Domain.DTO
         public IEnumerable<ProjectDto> Projects { get; set; }
         public IEnumerable<ServiceDto> Services { get; set; }
         public IEnumerable<TestimonialDto> Testimonials { get; set; }
+        public AddressDto Adress { get; set; }
         public ResumeDto Resume { get; set; }
     }
 }

@@ -44,7 +44,7 @@
                                 <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>@Model.UserDTO.Birthday</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>@Model.UserDTO.Website</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>@Model.UserDTO.Phone</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>@string.Concat(Model.UserDTO.City, ", ", Model.UserDTO.Country)</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>@string.Concat(Model.UserDTO.Adress.City, ", ", Model.UserDTO.Adress.Country)</span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
@@ -189,7 +189,7 @@
                             <h4>@string.Concat(Model.UserDTO.FirstName, " ", Model.UserDTO.LastName)</h4>
                             <p><em>@Model.UserDTO.Summary</em></p>
                             <ul>
-                                <li>@string.Concat(Model.UserDTO.City, ", ", Model.UserDTO.Country)</li>
+                                <li>@string.Concat(Model.UserDTO.Adress.City, ", ", Model.UserDTO.Adress.Country)</li>
                                 <li>@Model.UserDTO.Phone</li>
                                 <li>@Model.UserDTO.Email</li>
                             </ul>
