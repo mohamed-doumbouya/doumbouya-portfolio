@@ -1,18 +1,20 @@
-﻿using MyPortfolio.Domain.Models;
-using MyPortfolio.Infrastructure.Data;
+﻿using Microsoft.AspNetCore.Identity;
+using MyPortfolio.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyPortfolio.Infrastructure.Seeder
 {
     public static class DatabaseSeeder
     {
-        public static void Seeder(ApplicationDbContext context)
+        public static async Task SeedUserAsync(UserManager<ApplicationUser> userManager)
         {
-            if (!context.Users.Any())
+            var adminUser = await userManager.FindByEmailAsync("test.test@gmail.com");
+
+            if (adminUser == null)
             {
-                var user = new ApplicationUser
+                adminUser = new ApplicationUser
                 {
                     FirstName = "Mohamed",
                     LastName = "Doumbouya",
@@ -260,8 +262,25 @@ namespace MyPortfolio.Infrastructure.Seeder
                     }
                 };
 
-                context.Users.Add(user);
-                context.SaveChanges();
+                await userManager.CreateAsync(adminUser, "Admin123!");
+            }
+
+            if(!await userManager.IsInRoleAsync(adminUser, "Admin"))
+            {
+                await userManager.AddToRoleAsync(adminUser, "Admin");
+            }
+        }
+
+        public static async Task SeedRoleAsync(RoleManager<IdentityRole> roleManager)
+        {
+            var roleToAssign = new[] { "", "User" };
+
+            foreach (var role in roleToAssign)
+            {
+                if (!await roleManager.RoleExistsAsync(role))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(role));
+                }
             }
         }
     }

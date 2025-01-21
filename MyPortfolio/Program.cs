@@ -1,9 +1,12 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
+using MyPortfolio.Domain.Models;
 using MyPortfolio.Domain.Services;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories;
+using MyPortfolio.Infrastructure.Seeder;
 
 namespace MyPortfolio
 {
@@ -36,6 +39,16 @@ namespace MyPortfolio
             );
 
             var app = builder.Build();
+
+
+            using(var scope = app.Services.CreateScope())
+            {
+                var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+
+                DatabaseSeeder.SeedUserAsync(userManager).Wait();
+                DatabaseSeeder.SeedRoleAsync(roleManager).Wait();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
