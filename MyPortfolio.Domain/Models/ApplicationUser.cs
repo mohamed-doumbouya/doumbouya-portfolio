@@ -15,8 +15,8 @@ namespace MyPortfolio.Domain.Models
         public string Profession { get; set; }
         public string Summary { get; set; }
         public string ProfilImgUrl { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime UpdateDate { get; set; }
+        public DateTime CreateAt { get; set; }
+        public DateTime UpdateAt { get; set; }
 
         // Relation
         public IEnumerable<Skill> Skills { get; set; }
