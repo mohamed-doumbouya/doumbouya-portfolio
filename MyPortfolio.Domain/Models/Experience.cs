@@ -13,9 +13,9 @@ namespace MyPortfolio.Domain.Models
         public string EntrepriseName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public string Role { get; set; }
+        public string? City { get; set; }
+        public string? Country { get; set; }
+        public string? Role { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
 

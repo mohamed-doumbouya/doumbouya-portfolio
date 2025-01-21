@@ -12,7 +12,7 @@ namespace MyPortfolio.Domain.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public string Client { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
@@ -20,7 +20,7 @@ namespace MyPortfolio.Domain.Models
         public string? ProjectURL { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
-        public string Summary { get; set; }
+        public string? Summary { get; set; }
 
         //Relation
         public int CategoryId { get; set; }
