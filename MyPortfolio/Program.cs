@@ -38,6 +38,9 @@ namespace MyPortfolio
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
             );
 
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders();
             var app = builder.Build();
 
 
@@ -46,8 +49,8 @@ namespace MyPortfolio
                 var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 
-                DatabaseSeeder.SeedUserAsync(userManager).Wait();
                 DatabaseSeeder.SeedRoleAsync(roleManager).Wait();
+                DatabaseSeeder.SeedUserAsync(userManager).Wait();
             }
 
             // Configure the HTTP request pipeline.

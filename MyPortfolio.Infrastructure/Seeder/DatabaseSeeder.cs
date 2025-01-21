@@ -10,7 +10,8 @@ namespace MyPortfolio.Infrastructure.Seeder
     {
         public static async Task SeedUserAsync(UserManager<ApplicationUser> userManager)
         {
-            var adminUser = await userManager.FindByEmailAsync("test.test@gmail.com");
+            var email = "test.test@gmail.com";
+            var adminUser = await userManager.FindByEmailAsync(email);
 
             if (adminUser == null)
             {
@@ -18,6 +19,8 @@ namespace MyPortfolio.Infrastructure.Seeder
                 {
                     FirstName = "Mohamed",
                     LastName = "Doumbouya",
+                    ProfilImgUrl = string.Empty,
+                    Summary = "Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\nmagna aliqua.",
                     Adresses = new List<Address>
                     {
                         new Address
@@ -27,13 +30,13 @@ namespace MyPortfolio.Infrastructure.Seeder
                             IsActive = true
                         }
                     },
-                    Email = "test.test@gmail.com",
+                    Email = email,
+                    UserName = email,
                     Birthday = new DateTime(1999, 9, 16),
                     Degree = "SoftWare ingineer",
                     Website = "www.example.com",
                     PhoneNumber = "+123 456 7890",
                     Profession = "SoftWare ingineer",
-                    Summary = "Summary Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore\r\nmagna aliqua.",
                     FreelanceAvailable = true,
                     Skills = new List<Skill>
                     {
@@ -41,19 +44,31 @@ namespace MyPortfolio.Infrastructure.Seeder
                         {
                             Name = "HTML",
                             Percentage = 100,
-                            CreateAt = DateTime.Now
+                            CreateAt = DateTime.Now,
+                            Category = new SkillCategory
+                            {
+                                Name = "Promgramming"
+                            }
                         },
                         new Skill
                         {
                             Name = "CSS",
                             Percentage = 90,
-                            CreateAt = DateTime.Now
+                            CreateAt = DateTime.Now,
+                            Category = new SkillCategory
+                            {
+                                Name = "Promgramming"
+                            }
                         },
                         new Skill
                         {
                             Name = "JavaScript",
                             Percentage = 75,
-                            CreateAt = DateTime.Now
+                            CreateAt = DateTime.Now,
+                            Category = new SkillCategory
+                            {
+                                Name = "Promgramming"
+                            }
                         }
                     },
                     Resume = new Resume
@@ -106,18 +121,22 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 {
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Lead in the design, development, and implementation of the graphic, layout, and production communication materials"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
                                     }
                                 }
@@ -134,18 +153,22 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 {
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Lead in the design, development, and implementation of the graphic, layout, and production communication materials"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design"
                                     },
                                     new Mission
                                     {
+                                        Name = "Test",
                                         Description = "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
                                     }
                                 }
@@ -273,11 +296,12 @@ namespace MyPortfolio.Infrastructure.Seeder
 
         public static async Task SeedRoleAsync(RoleManager<IdentityRole> roleManager)
         {
-            var roleToAssign = new[] { "", "User" };
+            var roleToAssign = new[] { "Admin", "User" };
 
             foreach (var role in roleToAssign)
             {
-                if (!await roleManager.RoleExistsAsync(role))
+                var exist = await roleManager.RoleExistsAsync(role);
+                if (!exist)
                 {
                     await roleManager.CreateAsync(new IdentityRole(role));
                 }
