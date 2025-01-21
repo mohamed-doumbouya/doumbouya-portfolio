@@ -20,6 +20,7 @@ namespace MyPortfolio.Domain.Models
         public string? ProjectURL { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
+        public string Summary { get; set; }
 
         //Relation
         public int CategoryId { get; set; }
