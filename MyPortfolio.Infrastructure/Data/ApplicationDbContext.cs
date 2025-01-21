@@ -52,32 +52,38 @@ namespace MyPortfolio.Infrastructure.Data
 
             builder.Entity<Resume>()
                 .HasOne(r => r.User)
-                .WithOne(u => u.Resume);
+                .WithOne(u => u.Resume)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Service>()
                 .HasOne(s => s.User)
                 .WithMany(u => u.Services)
-                .HasForeignKey(s => s.UserId);
+                .HasForeignKey(s => s.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Skill>()
                 .HasOne(s => s.User)
                 .WithMany(u => u.Skills)
-                .HasForeignKey(s => s.UserId);
+                .HasForeignKey(s => s.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Skill>()
                 .HasOne(s => s.Category)
                 .WithMany(c => c.Skills)
-                .HasForeignKey(s => s.CategoryId);
+                .HasForeignKey(s => s.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Project>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Projects)
-                .HasForeignKey(p => p.CategoryId);
+                .HasForeignKey(p => p.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Entity<Project>()
                 .HasOne(p => p.User)
                 .WithMany(c => c.Projects)
-                .HasForeignKey(u => u.UserId);
+                .HasForeignKey(u => u.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             #endregion Many-to-Many and One-to-Many
 
