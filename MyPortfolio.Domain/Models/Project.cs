@@ -19,6 +19,6 @@ namespace MyPortfolio.Domain.Models
         //Relation
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
-        public ICollection<ProjectTechnology> ProjectTechnologies { get; set; }
+        public IEnumerable<ProjectTechnology> ProjectTechnologies { get; set; }
     }
 }

@@ -8,6 +8,6 @@ namespace MyPortfolio.Domain.Models
         public string Name { get; set; }
 
         //Relation
-        public ICollection<ProjectTechnology> ProjectTechnologies { get; set; }
+        public IEnumerable<ProjectTechnology> ProjectTechnologies { get; set; }
     }
 }

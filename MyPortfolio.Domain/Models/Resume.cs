@@ -10,7 +10,7 @@ namespace MyPortfolio.Domain.Models
         //Relation
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
-        public ICollection<Education> Educations { get; set; }
-        public ICollection<Experience> Experiences { get; set; }
+        public IEnumerable<Education> Educations { get; set; }
+        public IEnumerable<Experience> Experiences { get; set; }
     }
 }

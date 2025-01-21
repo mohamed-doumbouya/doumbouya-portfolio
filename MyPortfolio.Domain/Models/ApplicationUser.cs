@@ -22,10 +22,10 @@ namespace MyPortfolio.Domain.Models
         public DateTime UpdateDate { get; set; }
 
         // Relation
-        public ICollection<Skill> Skills { get; set; }
-        public ICollection<Project> Projects { get; set; }
-        public ICollection<Service> Services { get; set; }
-        public ICollection<Testimonial> Testimonials { get; set; }
+        public IEnumerable<Skill> Skills { get; set; }
+        public IEnumerable<Project> Projects { get; set; }
+        public IEnumerable<Service> Services { get; set; }
+        public IEnumerable<Testimonial> Testimonials { get; set; }
         public Resume Resume { get; set; }
     }
 }

@@ -16,6 +16,6 @@ namespace MyPortfolio.Domain.Models
         //Relation
         public int ResumeId { get; set; }
         public Resume Resume { get; set; }
-        public ICollection<Mission> Missions { get; set; }
+        public IEnumerable<Mission> Missions { get; set; }
     }
 }
