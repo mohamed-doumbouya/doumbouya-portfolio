@@ -1,16 +1,17 @@
 ﻿using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Models;
+using MyPortfolio.Infrastructure.Data;
+using MyPortfolio.Infrastructure.Repositories.Generics;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MyPortfolio.Infrastructure.Repositories
 {
-    public class UserRepository : IUserRepository
+    public class UserRepository : GenericRepository<ApplicationUser>, IUserRepository
     {
-        public UserRepository()
+        public UserRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
-            
         }
 
         public async Task<ApplicationUser> GetUserByEmailAsync(string email)
