@@ -5,6 +5,6 @@ namespace MyPortfolio.Domain.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        Task<ApplicationUser> GetUserByEmailAsync(string email);
+        Task<ApplicationUser?> GetUserByEmailAsync(string email);
     }
 }
