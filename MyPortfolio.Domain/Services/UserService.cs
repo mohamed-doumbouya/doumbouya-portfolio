@@ -1,6 +1,9 @@
-﻿using MyPortfolio.Domain.DTO;
+﻿using Microsoft.AspNetCore.Identity;
+using MyPortfolio.Domain.DTO;
 using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
+using MyPortfolio.Domain.Mappers;
+using MyPortfolio.Domain.Models;
 using MyPortfolio.Domain.Models.ViewModels;
 using System;
 using System.Linq;
@@ -17,6 +20,7 @@ namespace MyPortfolio.Domain.Services
         private readonly IServiceHandler _serviceHandler;
         private readonly ITestimonialService _testimonialService;
         private readonly IUserRepository _userRepository;
+        private readonly UserManager<ApplicationUser> _userManager;
         #endregion Fields
 
         #region Constructor
@@ -27,7 +31,8 @@ namespace MyPortfolio.Domain.Services
             IProjectService projectService,
             IServiceHandler serviceHandler,
             ITestimonialService testimonialService,
-            IUserRepository userRepository
+            IUserRepository userRepository,
+            UserManager<ApplicationUser> userManager
         )
         {
             _skillService = skillService;
@@ -36,6 +41,13 @@ namespace MyPortfolio.Domain.Services
             _serviceHandler = serviceHandler;
             _testimonialService = testimonialService;
             _userRepository = userRepository;
+            _userManager = userManager;
+        }
+
+        public async Task<UserDto> GetUserAsync()
+        {
+            var user = await _userManager.FindByEmailAsync("test@gmail.com");
+            return user.ConvertToUserDTO();
         }
         #endregion Constructor
 
