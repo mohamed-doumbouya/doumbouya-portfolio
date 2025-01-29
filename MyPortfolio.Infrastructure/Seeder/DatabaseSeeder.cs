@@ -33,7 +33,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                     Email = email,
                     UserName = email,
                     Birthday = new DateTime(1999, 9, 16),
-                    Degree = "SoftWare ingineer",
+                    Degree = "SoftWare Engineer",
                     Website = "www.example.com",
                     PhoneNumber = "+123 456 7890",
                     Profession = "SoftWare ingineer",
@@ -244,26 +244,35 @@ namespace MyPortfolio.Infrastructure.Seeder
                         {
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            Summary = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate"
                         },
                         new Service
                         {
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            Summary = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            ImgUrl = "~/images/services.jpg"
                         },
                         new Service
                         {
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            Summary = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            ImgUrl = "~/images/services.jpg"
                         },
                         new Service
                         {
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            Summary = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            ImgUrl = "~/images/services.jpg"
                         },
                         new Service
                         {
                             Title = "Magnam dolores",
                             Description = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            Summary = "Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate",
+                            ImgUrl = "~/images/services.jpg"
                         }
                     },
                     Testimonials = new List<Testimonial>

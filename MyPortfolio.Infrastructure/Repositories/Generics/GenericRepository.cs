@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyPortfolio.Infrastructure.Repositories.Generics
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         #region Fields
         private readonly ApplicationDbContext _dbContext;
@@ -15,7 +15,7 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
         #endregion Fields
 
         #region Constructor
-        public GenericRepository(ApplicationDbContext dbContext)
+        protected GenericRepository(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
             _entities = _dbContext.Set<TEntity>();
@@ -46,27 +46,27 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<bool> ExistAsync(int id) => await _dbContext.Set<TEntity>().AnyAsync(entity => EF.Property<int>(entity, "Id").Equals(id));
+        public virtual async Task<bool> ExistAsync(int id) => await _dbContext.Set<TEntity>().AnyAsync(entity => EF.Property<int>(entity, "Id").Equals(id));
 
         /// <summary>
         /// Return all entities from the source
         /// </summary>
         /// <returns></returns>
-        public virtual async Task<IEnumerable<TEntity>> GetAll() => await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync();
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync() => await _dbContext.Set<TEntity>().AsNoTracking().ToListAsync();
 
         /// <summary>
         /// Return the matching entity if found or return null
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public virtual async Task<TEntity?> GetById(int id) => await _dbContext.Set<TEntity>().FindAsync(id);
+        public virtual async Task<TEntity?> GetByIdAsync(int id) => await _dbContext.Set<TEntity>().FindAsync(id);
 
         /// <summary>
         /// Return the matching entity if found or return null
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public virtual async Task<TEntity?> GetById(string id) => await _dbContext.Set<TEntity>().FindAsync(id);
+        public virtual async Task<TEntity?> GetByIdAsync(string id) => await _dbContext.Set<TEntity>().FindAsync(id);
 
         /// <summary>
         /// Remove the given entity from the source
