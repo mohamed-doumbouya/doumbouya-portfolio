@@ -46,8 +46,10 @@ namespace MyPortfolio.Domain.Services
 
         public async Task<UserDto> GetUserAsync()
         {
-            var user = await _userManager.FindByEmailAsync("test@gmail.com");
-            return user.ConvertToUserDTO();
+            var user = await _userManager.FindByEmailAsync("test.test@gmail.com");
+            var userDto = user.ConvertToUserDTO();
+            userDto.Skills = await _skillService.GetSkillsByUserIdAsync("userId");
+            return userDto;
         }
         #endregion Constructor
 
