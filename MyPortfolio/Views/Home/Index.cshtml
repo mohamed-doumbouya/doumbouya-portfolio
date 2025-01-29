@@ -301,7 +301,7 @@
                                         <h4>@project.Title</h4>
                                         <p>@project.Summary</p>
                                         <a href="@Url.Content(@project.ImageUrl)" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+                                        <a asp-controller="Projects" asp-action="Details" title="More Details" asp-route-id="@project.Id" class="details-link"><i class="bi bi-link-45deg"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -335,8 +335,8 @@
                         <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                             <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
                             <div>
-                                <h4 class="title"><a href="service-details.html" class="stretched-link">@service.Title</a></h4>
-                                <p class="description">@service.Description</p>
+                                <h4 class="title"><a asp-controller="Services" asp-action="Details" asp-route-id="@service.Id" class="stretched-link">@service.Title</a></h4>
+                                <p class="description">@service.Summary</p>
                             </div>
                         </div>
                         <!-- End Service Item -->
