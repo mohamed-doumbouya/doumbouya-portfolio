@@ -55,21 +55,21 @@ namespace MyPortfolio.Domain.Services
                     LastName = user.LastName,
                     Adress = new AddressDto 
                     { 
-                        City = adress?.City,
-                        Country = adress?.Country
+                        City = adress?.City ?? string.Empty,
+                        Country = adress?.Country ?? string.Empty
                     },
                     Email = user.Email,
                     Birthday = user.Birthday,
-                    Degree = user.Degree,
-                    Website = user.Website,
-                    Phone = user.PhoneNumber,
-                    Profession = user.Profession,
-                    Summary = user.Summary,
+                    Degree = user.Degree ?? string.Empty,
+                    Website = user.Website ?? string.Empty,
+                    Phone = user.PhoneNumber ?? string.Empty,
+                    Profession = user.Profession ?? string.Empty,
+                    Summary = user.Summary ?? string.Empty,
                     Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible",
                     Skills = await _skillService.GetSkillsByUserIdAsync("userId"),
                     Resume = await _resumeService.GetResumeByUserIdAsync("userId"),
-                    Projects = await _projectService.GetUserProjectsAsync(),
-                    Services = await _serviceHandler.GetUserServicesAsync(),
+                    Projects = await _projectService.GetProjectsAsync(),
+                    Services = await _serviceHandler.GetServicesAsync(),
                     Testimonials = await _testimonialService.GetUserTestimonials()
                 };
 

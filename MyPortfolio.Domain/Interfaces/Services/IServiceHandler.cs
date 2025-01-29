@@ -6,6 +6,7 @@ namespace MyPortfolio.Domain.Interfaces.Services
 {
     public interface IServiceHandler
     {
-        Task<IEnumerable<ServiceDto>> GetUserServicesAsync();
+        Task<IEnumerable<ServiceDto>> GetServicesAsync();
+        Task<ServiceDto> GetServiceByAsync(int id);
     }
 }

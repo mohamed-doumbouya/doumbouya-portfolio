@@ -33,19 +33,19 @@ namespace MyPortfolio.Domain.Interfaces.Repositories.Generics
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<TEntity?> GetById(int id);
+        Task<TEntity?> GetByIdAsync(int id);
 
         /// <summary>
         /// Return the matching entity if found or return null
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Task<TEntity?> GetById(string id);
+        Task<TEntity?> GetByIdAsync(string id);
 
         /// <summary>
         /// Return all entities from the source
         /// </summary>
         /// <returns></returns>
-        Task<IEnumerable<TEntity>> GetAll();
+        Task<IEnumerable<TEntity>> GetAllAsync();
     }
 }
