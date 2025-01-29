@@ -20,6 +20,11 @@ namespace MyPortfolio.Controllers
         public async Task<IActionResult> Details()
         {
             UserDto user = await _userService.GetUserAsync();
+            if(user == null)
+            {
+                return NotFound();
+            }
+
             return View(user);
         }
     }

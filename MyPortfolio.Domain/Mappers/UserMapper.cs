@@ -1,5 +1,6 @@
 ﻿using MyPortfolio.Domain.DTO;
 using MyPortfolio.Domain.Models;
+using System;
 
 namespace MyPortfolio.Domain.Mappers
 {
@@ -13,20 +14,27 @@ namespace MyPortfolio.Domain.Mappers
                 return null;
             }
 
-            var UserDto = new UserDto();
+            var userDto = new UserDto();
 
-            UserDto.FirstName = user.FirstName;
-            UserDto.LastName = user.LastName;
-            UserDto.Website = user.Website ?? string.Empty;
-            UserDto.Email = user.Email ?? string.Empty;
-            UserDto.Degree = user.Degree ?? string.Empty;
-            UserDto.Birthday = user.Birthday;
-            UserDto.Phone = user.PhoneNumber ?? string.Empty;
-            UserDto.Profession = user.Profession ?? string.Empty;
-            UserDto.Summary = user.Summary ?? string.Empty;
-            UserDto.Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible";
+            userDto.FirstName = user.FirstName;
+            userDto.LastName = user.LastName;
+            userDto.Website = user.Website ?? string.Empty;
+            userDto.Email = user.Email ?? string.Empty;
+            userDto.Degree = user.Degree ?? string.Empty;
+            userDto.Birthday = user.Birthday;
+            userDto.Phone = user.PhoneNumber ?? string.Empty;
+            userDto.Profession = user.Profession ?? string.Empty;
+            userDto.Summary = user.Summary ?? string.Empty;
+            userDto.Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible";
 
-            return UserDto;
+            var birthDate = userDto.Birthday;
+            userDto.Age = DateTime.Now.Year - birthDate.Year;
+            if (birthDate > DateTime.Now.AddYears(-userDto.Age))
+            {
+                userDto.Age--;
+            }
+
+            return userDto;
         }
     }
 }
