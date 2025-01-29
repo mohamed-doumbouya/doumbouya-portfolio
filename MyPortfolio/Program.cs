@@ -32,11 +32,12 @@ namespace MyPortfolio
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<ISkillRepository, SkillRepository>();
             builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
+            builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
+            builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
             #endregion Repositories
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-            );
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -70,7 +71,7 @@ namespace MyPortfolio
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{Id?}");
 
             app.Run();
         }
