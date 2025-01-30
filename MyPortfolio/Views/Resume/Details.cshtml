@@ -33,7 +33,7 @@
                 @if (Model.ResumeDTO != null && Model.ResumeDTO.Educations != null && Model.ResumeDTO.Educations.Any())
                 {
                     <h3 class="resume-title">Education</h3>
-                    @foreach (var education in Model.ResumeDTO.Educations.OrderByDescending(e => e.StartDate))
+                    @foreach (var education in Model.ResumeDTO.Educations)
                     {
                         <div class="resume-item">
                             <h4>@education.Certification</h4>
@@ -61,7 +61,7 @@
             {
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="resume-title">Professional Experience</h3>
-                    @foreach (var experience in Model.ResumeDTO.Experiences.OrderByDescending(e => e.StartDate))
+                    @foreach (var experience in Model.ResumeDTO.Experiences)
                     {
                         <div class="resume-item">
                             <h4>@experience.Role</h4>
