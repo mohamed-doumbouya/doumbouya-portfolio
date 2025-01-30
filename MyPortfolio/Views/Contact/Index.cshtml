@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Contact";
 }
 @model MyPortfolio.Domain.Models.ViewModels.ContactViewModel
 
@@ -18,7 +18,7 @@
         <div class="row gy-4">
             <div class="col-lg-7">
                 <form asp-action="Index" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-                    @Html.AntiForgeryToken();
+                    @Html.AntiForgeryToken()
                     <div class="row gy-4">
 
                         <div class="col-md-6">
