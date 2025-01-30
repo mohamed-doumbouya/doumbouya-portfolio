@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Resume";
+}
+@model MyPortfolio.Domain.Models.ViewModels.ResumeDetailsViewModel
+
+<!-- Resume Section -->
+
+<section id="resume" class="resume section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Resume</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+    </div><!-- End Section Title -->
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="resume-title">Sumary</h3>
+
+                <div class="resume-item pb-0">
+                    <h4>@string.Concat(Model.UserDTO.FirstName, " ", Model.UserDTO.LastName)</h4>
+                    <p><em>@Model.UserDTO.Summary</em></p>
+                    <ul>
+                        <li>@string.Concat(Model.UserDTO.Adress?.City, ", ", Model.UserDTO.Adress?.Country)</li>
+                        <li>@Model.UserDTO.Phone</li>
+                        <li>@Model.UserDTO.Email</li>
+                    </ul>
+                </div><!-- Edn Resume Item -->
+                @if (Model.ResumeDTO != null && Model.ResumeDTO.Educations != null && Model.ResumeDTO.Educations.Any())
+                {
+                    <h3 class="resume-title">Education</h3>
+                    @foreach (var education in Model.ResumeDTO.Educations.OrderByDescending(e => e.StartDate))
+                    {
+                        <div class="resume-item">
+                            <h4>@education.Certification</h4>
+                            <h5>
+                                @education.StartDate.Year - 
+                                @if (@education.EndDate.HasValue)
+                                {
+                                    @education.EndDate.Value.Year
+                                }
+                                else{
+                                    var message = new string("Present");
+                                    @message
+                                }
+                            </h5>
+                            <p><em>@education.Name, @education.City, @education.Country</em></p>
+                            <p>@education.Description</p>
+                        </div>
+
+                        <!-- Edn Resume Item -->
+                    }
+                }
+            </div>
+
+            @if (Model.ResumeDTO != null && Model.ResumeDTO.Experiences != null && Model.ResumeDTO.Experiences.Any())
+            {
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="resume-title">Professional Experience</h3>
+                    @foreach (var experience in Model.ResumeDTO.Experiences.OrderByDescending(e => e.StartDate))
+                    {
+                        <div class="resume-item">
+                            <h4>@experience.Role</h4>
+                            <h5>
+                                @experience.StartDate.Year - 
+                                @if (@experience.EndDate.HasValue)
+                                {
+                                    @experience.EndDate.Value.Year
+                                }
+                                else{
+                                    var message = new string("Present");
+                                    @message
+                                }
+                            </h5>
+                            <p><em>@experience.EntrepriseName, @experience.City, @experience.Country </em></p>
+                            @if(experience.Missions != null){
+                                <ul>
+                                    @foreach (var mission in experience.Missions)
+                                    {
+                                        <li>@mission.Description</li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+
+                        <!-- Edn Resume Item -->
+                    }
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- /Resume Section -->
+
