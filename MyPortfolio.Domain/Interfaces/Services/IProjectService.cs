@@ -6,7 +6,7 @@ namespace MyPortfolio.Domain.Interfaces.Services
 {
     public interface IProjectService
     {
-        Task<ProjectDto> GetProjectByIdAsync(int Id);
+        Task<ProjectDto> GetProjectByIdAsync(int id);
         Task<IEnumerable<ProjectDto>> GetProjectsAsync();
     }
 }

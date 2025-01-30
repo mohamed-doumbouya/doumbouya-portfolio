@@ -13,9 +13,10 @@ namespace MyPortfolio.Controllers
             _projectService = projectService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            IEnumerable<ProjectDto> projects = await _projectService.GetProjectsAsync();
+            return View(projects);
         }
 
         public async Task<IActionResult> Details(int Id)
