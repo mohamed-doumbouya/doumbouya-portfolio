@@ -1,4 +1,5 @@
-﻿using MyPortfolio.Domain.Interfaces.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Models;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories.Generics;
@@ -12,12 +13,16 @@ namespace MyPortfolio.Infrastructure.Repositories
         {
         }
 
-        public async Task<Resume> GetResumeByUserIdAsync(string userId)
+        public async Task<Resume> GetResumeAsync()
         {
-           var resume = new Resume();
-            resume.Summary = "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.";
+            var resume = await _entities
+                .Include(r => r.Educations)
+                .Include(r => r.Experiences)
+                .ThenInclude(e => e.Missions)
+                .AsSplitQuery()
+                .FirstOrDefaultAsync();
 
-            return await Task.FromResult(resume);
+            return resume;
         }
     }
 }
