@@ -1,40 +1,41 @@
 ﻿@{
-    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Service details";
 }
 @model MyPortfolio.Domain.DTO.ServiceDto
 
 
-<!-- Page Title -->
-<div class="page-title dark-background">
-    <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0">Service Details</h1>
-        <nav class="breadcrumbs">
-            <ol>
-                <li><a asp-controller="Services" asp-action="Index">Services</a></li>
-                <li class="current">Service Details</li>
-            </ol>
-        </nav>
+<div class="service-details-page">
+    <div class="page-title dark-background">
+        <div class="container d-lg-flex justify-content-between align-items-center">
+            <h1 class="mb-2 mb-lg-0">Service Details</h1>
+            <nav class="breadcrumbs">
+                <ol>
+                    <li><a asp-controller="Services" asp-action="Index">Services</a></li>
+                    <li class="current">Service Details</li>
+                </ol>
+            </nav>
+        </div>
     </div>
-</div><!-- End Page Title -->
-<!-- Service Details Section -->
-<section id="service-details" class="service-details section">
 
-    <div class="container">
+    <section id="service-details" class="service-details section">
 
-        <div class="row gy-4">
+        <div class="container">
 
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-                <img src="@Url.Content(Model.ImgUrl)" alt="" class="img-fluid services-img">
-                <h3>@Model.Title</h3>
-                <p>
-                    @Model.Description
-                </p>
+            <div class="row gy-4">
+
+                <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+                    <img src="@Url.Content(Model.ImgUrl)" alt="" class="img-fluid services-img">
+                    <h3>@Model.Title</h3>
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+
             </div>
 
         </div>
 
-    </div>
-
-</section><!-- /Service Details Section -->
+    </section>
+</div>
 

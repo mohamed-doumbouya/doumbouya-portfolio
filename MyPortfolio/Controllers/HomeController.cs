@@ -18,7 +18,8 @@ namespace MyPortfolio.Controllers
         public async Task<IActionResult> Index()
         {
             _logger.LogInformation("Get user informations ...");
-            UserInfoViewModel userInfo = await _userService.GetUserInformationsAsync();
+            UserInfoViewModel userInfo = new UserInfoViewModel();
+            userInfo.UserDTO = await _userService.GetUserAsync();
 
             return View(userInfo);
         }

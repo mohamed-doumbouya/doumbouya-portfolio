@@ -7,6 +7,5 @@ namespace MyPortfolio.Domain.Interfaces.Services
     public interface IUserService
     {
         Task<UserDto> GetUserAsync();
-        Task<UserInfoViewModel> GetUserInformationsAsync();
     }
 }

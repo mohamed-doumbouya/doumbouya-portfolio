@@ -4,19 +4,16 @@
 }
 @model MyPortfolio.Domain.Models.ViewModels.ServiceViewModel
 
+<section id="services" class="services section">
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Services</h2>
+        <p>Offering tailored solutions in software development, architecture, and technical consulting. Here’s how I can help bring your ideas to life.</p>
+    </div><!-- End Section Title -->
 
-<!-- Services Section -->
-@if (Model.Services != null && Model.Services.Any())
-{
-    <section id="services" class="services section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>Services</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container">
-
+    <div class="container">
+        @if (Model.Services != null && Model.Services.Any())
+        {
             <div class="row gy-4">
                 @foreach (var service in Model.Services)
                 {
@@ -30,16 +27,13 @@
                     <!-- End Service Item -->
                 }
             </div>
+        }
 
-        </div>
-    </section>
+    </div>
+</section>
 
-    <!-- /Services Section -->
-}
 
-<!-- Testimonials Section -->
-@if (Model.Testimonials != null && Model.Testimonials.Any())
-{
+@if (Model.Testimonials != null && Model.Testimonials.Any()){
     <section id="testimonials" class="testimonials section light-background">
 
         <!-- Section Title -->
@@ -101,6 +95,4 @@
         </div>
 
     </section>
-
-    <!-- /Testimonials Section -->
 }

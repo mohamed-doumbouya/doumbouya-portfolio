@@ -1,6 +1,7 @@
 ﻿using MyPortfolio.Domain.DTO;
 using MyPortfolio.Domain.Models;
 using System;
+using System.Linq;
 
 namespace MyPortfolio.Domain.Mappers
 {
@@ -16,6 +17,8 @@ namespace MyPortfolio.Domain.Mappers
 
             var userDto = new UserDto();
 
+            var adress = user.Adresses.FirstOrDefault(a => a.IsActive);
+
             userDto.FirstName = user.FirstName;
             userDto.LastName = user.LastName;
             userDto.Website = user.Website ?? string.Empty;
@@ -26,6 +29,11 @@ namespace MyPortfolio.Domain.Mappers
             userDto.Profession = user.Profession ?? string.Empty;
             userDto.Summary = user.Summary ?? string.Empty;
             userDto.Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible";
+            userDto.Adress = new AddressDto
+            {
+                City = adress?.City ?? string.Empty,
+                Country = adress?.Country ?? string.Empty
+            };
 
             var birthDate = userDto.Birthday;
             userDto.Age = DateTime.Now.Year - birthDate.Year;
