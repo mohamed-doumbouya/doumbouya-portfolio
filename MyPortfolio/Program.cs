@@ -4,6 +4,7 @@ using MyPortfolio.Domain.Interfaces.Repositories;
 using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models;
 using MyPortfolio.Domain.Services;
+using MyPortfolio.Domain.Settings;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories;
 using MyPortfolio.Infrastructure.Seeder;
@@ -16,6 +17,22 @@ namespace MyPortfolio
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            #region Configuration Section
+            builder.Configuration.AddEnvironmentVariables();
+            builder.Services.AddOptions<DatabaseSettings>()
+                .Bind(builder.Configuration.GetSection(DatabaseSettings.DatabaseSection))
+                .ValidateDataAnnotations()
+                .ValidateDataAnnotations();
+
+            Console.WriteLine($"SMTP Server: {Environment.GetEnvironmentVariable("SmtpSettings__Password")}");
+
+            builder.Services
+                .AddOptions<SmtpSettings>()
+                .Bind(builder.Configuration.GetSection(SmtpSettings.SmtpSection))
+                .ValidateDataAnnotations()
+                .ValidateOnStart();
+            #endregion
+
             #region Services
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<IUserService, UserService>();
@@ -26,6 +43,7 @@ namespace MyPortfolio
             builder.Services.AddScoped<ITestimonialService, TestimonialService>();
             builder.Services.AddScoped<IEducationService, EducationService>();
             builder.Services.AddScoped<IExperienceService, ExperienceService>();
+            builder.Services.AddScoped<IEmailService, EmailService>();
             #endregion Services
 
             #region Repositories
@@ -43,7 +61,6 @@ namespace MyPortfolio
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultTokenProviders();
             var app = builder.Build();
-
 
             using(var scope = app.Services.CreateScope())
             {

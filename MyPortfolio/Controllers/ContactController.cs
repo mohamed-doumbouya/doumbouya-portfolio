@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models.ViewModels;
+using MyPortfolio.Domain.Services;
 using System.Net;
 using System.Net.Mail;
 
@@ -7,6 +9,13 @@ namespace MyPortfolio.Controllers
 {
     public class ContactController : Controller
     {
+        private readonly IEmailService _emailService;
+
+        public ContactController(IEmailService emailService)
+        {
+            _emailService = emailService;
+        }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -24,24 +33,7 @@ namespace MyPortfolio.Controllers
 
             try
             {
-                var smtpClient = new SmtpClient("smtp.example.com")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential(contact.SenderEmailAdress, "tonmotdepasse"),
-                    EnableSsl = true
-                };
-
-                var mailMessage = new MailMessage
-                {
-                    From = new MailAddress(contact.SenderEmailAdress),
-                    Subject = contact.Subject,
-                    Body = $"Sender name : {contact.SenderName}\nEmail : {contact.SenderEmailAdress}\nMessage :\n{contact.Message}",
-                    IsBodyHtml = false
-                };
-
-                mailMessage.To.Add("mohamed.doumbouya1112@gmail.com");
-
-                await smtpClient.SendMailAsync(mailMessage);
+                await _emailService.SendMailAsync(contact);
 
                 return RedirectToAction("Confirmation");
             }
