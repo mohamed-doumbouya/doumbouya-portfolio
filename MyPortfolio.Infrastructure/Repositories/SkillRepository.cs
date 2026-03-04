@@ -3,6 +3,7 @@ using MyPortfolio.Domain.Models;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories.Generics;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MyPortfolio.Infrastructure.Repositories
@@ -15,24 +16,7 @@ namespace MyPortfolio.Infrastructure.Repositories
 
         public async Task<IEnumerable<Skill>> GetSkillsByUserIdAsync(string userId)
         {
-            var skills = new List<Skill>
-                    {
-                        new Skill
-                        {
-                            Name = "HTML",
-                            Percentage = 100
-                        },
-                        new Skill
-                        {
-                            Name = "CSS",
-                            Percentage = 90
-                        },
-                        new Skill
-                        {
-                            Name = "JavaScript",
-                            Percentage = 75
-                        }
-            };
+            var skills = _dbContext.Skills.Where(s => s.UserId == userId).ToList();
 
             return await Task.FromResult(skills);
         }

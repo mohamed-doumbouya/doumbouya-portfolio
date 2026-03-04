@@ -70,8 +70,13 @@
             <div class="row skills-content skills-animation">
 
                 <div class="col-lg-6">
+                    @{
+                        int middleIndex = (int)Math.Ceiling(Model.Skills.Count() / 2.0);
+                        var firstHalf = Model.Skills.Take(middleIndex).ToList();
+                        var secondHalf = Model.Skills.Skip(middleIndex).ToList();
+                    }
 
-                    @foreach (var skill in Model.Skills)
+                    @foreach (var skill in firstHalf)
                     {
                         <div class="progress">
                             <span class="skill"><span>@skill.Name</span> <i class="val">@skill.Percentage.ToString()%</i></span>
@@ -85,7 +90,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    @foreach (var skill in Model.Skills)
+                    @foreach (var skill in secondHalf)
                     {
                         <div class="progress">
                             <span class="skill"><span>@skill.Name</span> <i class="val">@skill.Percentage.ToString()%</i></span>

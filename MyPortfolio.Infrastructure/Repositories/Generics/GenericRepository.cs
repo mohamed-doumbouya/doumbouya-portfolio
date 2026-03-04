@@ -10,8 +10,8 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
     public abstract class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         #region Fields
-        private readonly ApplicationDbContext _dbContext;
-        protected DbSet<TEntity> _entities {  get; }
+        protected readonly ApplicationDbContext _dbContext;
+        protected DbSet<TEntity> _entities { get; }
         #endregion Fields
 
         #region Constructor
@@ -35,7 +35,7 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
             {
                 throw new ArgumentNullException(nameof(entity));
             }
-                
+
 
             await _dbContext.Set<TEntity>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
@@ -75,14 +75,14 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
         /// <returns></returns>
         public virtual async Task RemoveAsync(TEntity entity)
         {
-            if(entity != null)
+            if (entity != null)
             {
-                if(_dbContext.Entry(entity).State == EntityState.Detached)
+                if (_dbContext.Entry(entity).State == EntityState.Detached)
                 {
                     _dbContext.Set<TEntity>().Attach(entity);
                 }
 
-               _dbContext.Set<TEntity>().Remove(entity);
+                _dbContext.Set<TEntity>().Remove(entity);
                 await _dbContext.SaveChangesAsync();
             }
         }
@@ -95,9 +95,9 @@ namespace MyPortfolio.Infrastructure.Repositories.Generics
         public virtual async Task<bool> UpdateAsync(TEntity entity)
         {
             var changes = 0;
-            if(entity != null)
+            if (entity != null)
             {
-                if(_dbContext.Entry(entity).State == EntityState.Detached)
+                if (_dbContext.Entry(entity).State == EntityState.Detached)
                 {
                     _dbContext.Set<TEntity>().Attach(entity);
                 }

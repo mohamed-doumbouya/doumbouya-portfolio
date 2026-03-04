@@ -32,7 +32,7 @@ namespace MyPortfolio.Domain.Services
         {
             var user = await _userRepository.GetUserAsync();
             var userDto = user.ConvertToUserDTO();
-            userDto.Skills = await _skillService.GetSkillsByUserIdAsync("userId");
+            userDto.Skills = await _skillService.GetSkillsByUserIdAsync(user.Id);
             return userDto;
         }
         #endregion IUserService
