@@ -10,7 +10,7 @@ namespace MyPortfolio.Infrastructure.Seeder
     {
         public static async Task SeedUserAsync(UserManager<ApplicationUser> userManager)
         {
-            var email = "test.test@gmail.com";
+            var email = "integredoumbouya@gmail.com";
             var adminUser = await userManager.FindByEmailAsync(email);
 
             if (adminUser == null)
