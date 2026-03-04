@@ -1,10 +1,10 @@
-﻿using MyPortfolio.Domain.Interfaces.Services;
+﻿using Microsoft.Extensions.Options;
+using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models.ViewModels;
-using System.Net.Mail;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
 using MyPortfolio.Domain.Settings;
+using System.Net;
+using System.Net.Mail;
+using System.Threading.Tasks;
 
 namespace MyPortfolio.Domain.Services
 {
@@ -28,13 +28,21 @@ namespace MyPortfolio.Domain.Services
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(contact.SenderEmailAdress),
-                Subject = contact.Subject,
-                Body = $"Sender name : {contact.SenderName}\nEmail : {contact.SenderEmailAdress}\nMessage :\n{contact.Message}",
-                IsBodyHtml = false
+                From = new MailAddress(_smptSettings.Username, "Portfolio Website"),
+                Subject = $"New Contact Message from {contact.SenderName}",
+                Body = $@"
+                    <h3>New Contact Message</h3>
+                    <p><strong>Name:</strong> {contact.SenderName}</p>
+                    <p><strong>Email:</strong> {contact.SenderEmailAdress}</p>
+                    <p><strong>Subject:</strong> {contact.Subject}</p>
+                    <hr/>
+                    <p>{contact.Message}</p>
+                ",
+                IsBodyHtml = true
             };
 
-            mailMessage.To.Add(_smptSettings.Username);
+            mailMessage.To.Add("integredoumbouya@gmail.com");
+            mailMessage.ReplyToList.Add(new MailAddress(contact.SenderEmailAdress));
 
             await smtpClient.SendMailAsync(mailMessage);
         }

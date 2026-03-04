@@ -24,8 +24,6 @@ namespace MyPortfolio
                 .ValidateDataAnnotations()
                 .ValidateDataAnnotations();
 
-            Console.WriteLine($"SMTP Server: {Environment.GetEnvironmentVariable("SmtpSettings__Password")}");
-
             builder.Services
                 .AddOptions<SmtpSettings>()
                 .Bind(builder.Configuration.GetSection(SmtpSettings.SmtpSection))
@@ -62,7 +60,7 @@ namespace MyPortfolio
             .AddDefaultTokenProviders();
             var app = builder.Build();
 
-            using(var scope = app.Services.CreateScope())
+            using (var scope = app.Services.CreateScope())
             {
                 var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
