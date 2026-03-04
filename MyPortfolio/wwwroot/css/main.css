@@ -1281,3 +1281,46 @@ section,
     font-weight: 400;
     letter-spacing: 0.5px;
 }
+
+.confirmation-box {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.confirmation-icon {
+    font-size: 40px;
+    color: #0d6efd; /* Bootstrap primary */
+    margin-bottom: 15px;
+}
+
+.confirmation-box h3 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.confirmation-box p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.confirmation-sub {
+    font-size: 0.95rem;
+    color: #777;
+}
+
+.btn-return {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 8px 20px;
+    border-radius: 25px;
+    background-color: #0d6efd;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-return:hover {
+    background-color: #084298;
+}
