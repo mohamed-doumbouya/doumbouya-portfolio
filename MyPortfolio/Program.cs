@@ -50,6 +50,7 @@ namespace MyPortfolio
             builder.Services.AddScoped<IResumeRepository, ResumeRepository>();
             builder.Services.AddScoped<IProjectRepository, ProjectRepository>();
             builder.Services.AddScoped<IServiceRepository, ServiceRepository>();
+            builder.Services.AddScoped<ITestimonialRepository, TestimonialRepository>();
             #endregion Repositories
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -64,6 +65,9 @@ namespace MyPortfolio
 
             using (var scope = app.Services.CreateScope())
             {
+                var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                db.Database.Migrate();
+
                 var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 

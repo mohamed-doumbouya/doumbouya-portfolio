@@ -27,7 +27,13 @@
                     <ul>
                         <li>@string.Concat(Model.UserDTO.Adress?.City, ", ", Model.UserDTO.Adress?.Country)</li>
                         <li>@Model.UserDTO.Phone</li>
-                        <li>@Model.UserDTO.Email</li>
+                        <li>
+                            <i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>
+                                <a href="mailto:@Model.UserDTO.Email">
+                                    Contact me by email
+                                </a>
+                            </span>
+                        </li>
                     </ul>
                 </div><!-- Edn Resume Item -->
                 @if (Model.ResumeDTO != null && Model.ResumeDTO.Educations != null && Model.ResumeDTO.Educations.Any())

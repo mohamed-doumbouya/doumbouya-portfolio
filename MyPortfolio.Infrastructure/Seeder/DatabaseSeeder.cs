@@ -259,7 +259,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                         new Service
                         {
                             Title = "Online Software Engineering Training & Mentorship",
-                            Description = "I offer online training programs and personalized mentorship sessions for students, junior developers, and early-career engineers who want to accelerate their technical growth.\r\n\r\nTrainings cover topics such as .NET Core development, clean architecture, secure coding, API design, database optimization, and modern software development practices. My approach is hands-on, project-based, and aligned with industry standards.\r\n\r\nBeyond technical skills, I mentor developers on problem-solving methodology, code quality, professional mindset, and interview preparation — helping them transition confidently into high-level engineering environments.",
+                            Description = "I offer online training programs and personalized mentorship sessions for students, junior developers, and early-career engineers who want to accelerate their technical growth.\r\n\r\nTrainings cover topics such as .NET Core development, clean architecture, secure coding, API design, database optimization, and modern software development practices. My approach is hands-on, project-based, and aligned with industry standards.\r\n\r\nBeyond technical skills, I mentor developers on problem-solving methodology, code quality, professional mindset, and interview preparation helping them transition confidently into high-level engineering environments.",
                             Summary = "Practical, industry-oriented software engineering training designed to bridge the gap between theory and real-world expertise.",
                             ImgUrl = "~/images/services.jpg"
                         },
@@ -280,7 +280,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                         new Service
                         {
                             Title = "Tech & Digital Transformation Speaker",
-                            Description = "I engage in knowledge-sharing initiatives through conferences, workshops, and technical talks focused on modern software engineering practices, secure application development, digital transformation in emerging markets, and the role of technology in education.\r\n\r\nMy perspective combines international engineering experience with a strong commitment to empowering the next generation of innovators — particularly within the African digital ecosystem.",
+                            Description = "I engage in knowledge-sharing initiatives through conferences, workshops, and technical talks focused on modern software engineering practices, secure application development, digital transformation in emerging markets, and the role of technology in education.\r\n\r\nMy perspective combines international engineering experience with a strong commitment to empowering the next generation of innovators particularly within the African digital ecosystem.",
                             Summary = "Sharing knowledge on software engineering, digital transformation, and the future of education.",
                             ImgUrl = "~/images/services.jpg"
                         }
@@ -289,17 +289,17 @@ namespace MyPortfolio.Infrastructure.Seeder
                     {
                         new Testimonial
                         {
-                            Author = "Jena Karlis",
+                            Author = "Alpha Oumar SOW",
                             AuthorImage = "~/images/testimonials/testimonials-2.jpg",
-                            Content = "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
-                            AuthorProfession = "Store Owner"
+                            Content = "Incoming",
+                            AuthorProfession = "Consultant Maitrise d'œuvre C#/.NET"
                         },
                         new Testimonial
                         {
-                            Author = "Jena Karlis",
+                            Author = "Sekouba TOURE",
                             AuthorImage = "~/images/testimonials/testimonials-2.jpg",
-                            Content = "Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.",
-                            AuthorProfession = "Store Owner"
+                            Content = "Incoming",
+                            AuthorProfession = "Chief Space Systems engineer"
                         }
                     }
                 };
