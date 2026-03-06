@@ -64,7 +64,7 @@
                             <ul>
                                 <li><strong>Category</strong>: @Model.Category</li>
                                 <li><strong>Client</strong>: @Model.Client</li>
-                                <li><strong>Project start date</strong>: @Model.StartDate</li>
+                                <li><strong>Project start date</strong>: @Model.StartDate.ToString("dd/MM/yyyy")</li>
 
                                 @if (Model.EndDate.HasValue && Model.EndDate.Value != default(DateTime))
                                 {
