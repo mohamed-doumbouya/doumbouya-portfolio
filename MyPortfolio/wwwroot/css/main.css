@@ -830,13 +830,11 @@ section,
 }
 
 .portfolio .portfolio-content .portfolio-info {
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  transition: all ease-in-out 0.3s;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
+    position: relative;
+    opacity: 1;
+    background: white;
+    padding: 15px;
+    text-align: center;
 }
 
 .portfolio .portfolio-content .portfolio-info h4 {
@@ -849,15 +847,11 @@ section,
 }
 
 .portfolio .portfolio-content .portfolio-info p {
-  position: absolute;
-  bottom: 10px;
-  text-align: center;
-  display: inline-block;
-  left: 0;
-  right: 0;
-  font-size: 16px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
 }
 
 .portfolio .portfolio-content .portfolio-info .preview-link,
@@ -888,6 +882,22 @@ section,
 
 .portfolio .portfolio-content:hover img {
   transform: scale(1.1);
+}
+
+.portfolio-img-container {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5; /* fond neutre pour combler l'espace */
+    border-radius: 8px;
+}
+
+.portfolio-img-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 /*--------------------------------------------------------------
@@ -1474,6 +1484,44 @@ section,
 .download-resume-btn i {
     font-size: 1.2rem;
 }
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn-main {
+    background: #149ddd;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-project-details {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 18px;
+    background: #149ddd;
+    color: white;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+    .btn-project-details:hover {
+        background: #0f7cb5;
+        color: white;
+    }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

@@ -21,62 +21,87 @@
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row gy-4">
+            <div class="container">
 
-                <div class="col-lg-8">
-                    <div class="portfolio-details-slider swiper init-swiper">
+                <!-- ROW 1 : Image + Project Info -->
+                <div class="row gy-4">
 
-                        <script type="application/json" class="swiper-config">
-                            {
-                              "loop": true,
-                              "speed": 600,
-                              "autoplay": {
-                                "delay": 5000
-                              },
-                              "slidesPerView": "auto",
-                              "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                              }
-                            }
-                        </script>
+                    <div class="col-lg-8">
+                        <div class="portfolio-details-slider swiper init-swiper">
 
-                        <div class="swiper-wrapper align-items-center">
+                            <script type="application/json" class="swiper-config">
+                                {
+                                  "loop": true,
+                                  "speed": 600,
+                                  "autoplay": {
+                                    "delay": 5000
+                                  },
+                                  "slidesPerView": "auto",
+                                  "pagination": {
+                                    "el": ".swiper-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                  }
+                                }
+                            </script>
 
-                            <div class="swiper-slide">
-                                <img src="@Url.Content(Model.ImageUrl)" alt="">
+                            <div class="swiper-wrapper align-items-center">
+
+                                <div class="swiper-slide">
+                                    <img src="@Url.Content(Model.ImageUrl)" class="img-fluid" alt="">
+                                </div>
+
                             </div>
 
+                            <div class="swiper-pagination"></div>
+
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
+
+                    <div class="col-lg-4">
+                        <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+                            <h3>@Model.Title</h3>
+                            <ul>
+                                <li><strong>Category</strong>: @Model.Category</li>
+                                <li><strong>Client</strong>: @Model.Client</li>
+                                <li><strong>Project start date</strong>: @Model.StartDate</li>
+
+                                @if (Model.EndDate.HasValue && Model.EndDate.Value != default(DateTime))
+                                {
+                                    <li><strong>Project end date</strong>: @Model.EndDate.Value.ToString("dd/MM/yyyy")</li>
+                                }
+                                else
+                                {
+                                    <li><strong>Project end date</strong>: In progress</li>
+                                }
+
+                                <li>
+                                    <strong>Project URL</strong>:
+                                    <a href="@Model.ProjectURL" target="_blank">
+                                        View the project website
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="col-lg-4">
-                    <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-                        <h3>@Model.Title</h3>
-                        <ul>
-                            <li><strong>Category</strong>: @Model.Category</li>
-                            <li><strong>Client</strong>: @Model.Client</li>
-                            <li><strong>Project start date</strong>: @Model.StartDate</li>
-                            @if (@Model.EndDate.HasValue)
-                            {
-                                <li><strong>Project end date</strong>: @Model.EndDate.Value.ToString()</li>
-                            }
-                            else
-                            {
-                                <li><strong>Project end date</strong>: In progress</li>
-                            }
-                            <li><strong>Project URL</strong>: <a href="@Model.ProjectURL" target="_blank"> View the projet website</a></li>
-                        </ul>
+                <!-- ROW 2 : Summary + Description -->
+                <div class="row mt-4">
+
+                    <div class="col-lg-12">
+                        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+
+                            <h2>@Model.Summary</h2>
+
+                            <p>
+                                @Model.Description
+                            </p>
+
+                        </div>
                     </div>
-                    <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-                        <h2>@Model.Summary</h2>
-                        <p>
-                            @Model.Description
-                        </p>
-                    </div>
+
                 </div>
 
             </div>

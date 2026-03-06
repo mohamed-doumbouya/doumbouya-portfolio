@@ -34,12 +34,22 @@
                               project.Title.ToLower().Contains("books") ? "filter-books" :
                               "filter-product")">
                         <div class="portfolio-content h-100">
+                        <div class="portfolio-img-container">
                             <img src="@Url.Content(@project.ImageUrl)" class="img-fluid" alt="">
+
+                            </div>
                             <div class="portfolio-info">
                                 <h4>@project.Title</h4>
                                 <p>@project.Summary</p>
-                                <a href="@Url.Content(@project.ImageUrl)" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                <a asp-controller="Projects" asp-action="Details" title="More Details" asp-route-id="@project.Id" class="details-link"><i class="bi bi-link-45deg"></i></a>
+
+                                    <div class="portfolio-actions">
+                                        <a asp-controller="Projects"
+                                           asp-action="Details"
+                                           asp-route-id="@project.Id"
+                                           class="btn-project-details">
+                                            See Details
+                                        </a>
+                                    </div>
                             </div>
                         </div>
                     </div>

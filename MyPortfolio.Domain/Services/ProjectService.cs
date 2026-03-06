@@ -22,9 +22,9 @@ namespace MyPortfolio.Domain.Services
             return projects.ConvertToProjectDtoList();
         }
 
-        public async Task<ProjectDto> GetProjectByIdAsync(int id)
+        public async Task<ProjectDto?> GetProjectByIdAsync(int id)
         {
-            var project = await _projectRepository.GetByIdAsync(id);
+            var project = await _projectRepository.GetProjectWithCategoryAsync(id);
             return project?.ConvertToProjectDTO();
         }
     }
