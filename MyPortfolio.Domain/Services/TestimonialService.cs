@@ -27,7 +27,10 @@ namespace MyPortfolio.Domain.Services
                 AuthorProfession = t.AuthorProfession ?? string.Empty,
                 AuthorImage = t.AuthorImage ?? string.Empty,
                 Content = t.Content,
-                Rating = t.Rating
+                Rating = t.Rating,
+                LinkedInUrl = t.LinkedInUrl ?? string.Empty,
+                GitHubUrl = t.GitHubUrl ?? string.Empty,
+                PortfolioUrl = t.PortfolioUrl ?? string.Empty
             });
         }
     }

@@ -70,16 +70,21 @@ namespace MyPortfolio
             .AddDefaultTokenProviders();
             var app = builder.Build();
 
+
             using (var scope = app.Services.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
                 db.Database.Migrate();
 
-                var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
-                var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
+                if (app.Environment.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                    var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
+                    var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 
-                DatabaseSeeder.SeedRoleAsync(roleManager).Wait();
-                DatabaseSeeder.SeedUserAsync(userManager).Wait();
+                    DatabaseSeeder.SeedRoleAsync(roleManager).Wait();
+                    DatabaseSeeder.SeedUserAsync(userManager).Wait();
+                }
             }
 
             // Configure the HTTP request pipeline.

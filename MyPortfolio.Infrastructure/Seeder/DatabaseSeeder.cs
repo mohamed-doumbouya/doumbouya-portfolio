@@ -34,7 +34,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                     UserName = email,
                     Birthday = new DateTime(1994, 9, 16),
                     Degree = "Software and Information Systems Engineer",
-                    Website = "www.example.com",
+                    Website = "https://mdoumbouya-tech-bkfgczhubdeheng6.westeurope-01.azurewebsites.net/",
                     PhoneNumber = "+33 7 63 96 00 28",
                     Profession = "SoftWare Engineer",
                     FreelanceAvailable = false,
@@ -119,7 +119,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                            new Education
                            {
                                Description = "I completed my secondary education at Sainte Marie de Dixinn High School, one of the leading institutions in the Republic of Guinea. During my academic journey there, I developed a strong foundation in mathematics and scientific disciplines.\r\n\r\nI graduated with highest honors (“Très Bien”) in the Scientific Mathematics track and was ranked 12th nationally in the Republic of Guinea. This achievement earned me a merit-based scholarship to pursue my higher education in Morocco.",
-                               Name = "Sainte Marie",
+                               Name = "Sainte Marie Institute in Dixinn",
                                City = "Conakry",
                                Country = "Guinea",
                                Certification = "Baccalaureat Unique",
@@ -129,9 +129,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                            new Education
                            {
                                Description = "I pursued two years of higher education at the Faculty of Sciences and Technology in Errachidia, Morocco. This experience marked an important stage in both my academic and personal development.\r\n\r\nBeyond the classroom, living in Errachidia introduced me to the value of community engagement and collective responsibility. I became actively involved with CESAM Errachidia (Confederation of African Pupils, Students, and Trainees in Morocco), where I contributed to initiatives supporting African students.\r\n\r\nThis involvement strengthened my leadership skills, broadened my intercultural perspective, and deepened my commitment to service and collaboration.",
-                               Name = "Faculté des Sciences et Techniques (FST)",
+                               Name = "Faculty of Science and Technology (FST)",
                                City = "Errachidia",
-                               Country = "Maroc",
+                               Country = "Morocco",
                                Certification = "Diplôme des Etudes Universitaires en Science et Technique (DEUST)",
                                StartDate = new DateTime(2014, 11, 2),
                                EndDate = new DateTime(2016, 10, 1)
@@ -139,9 +139,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                            new Education
                            {
                                Description = "At the end of these two enriching years marked by both scientific rigor and meaningful social engagement. I successfully passed the highly competitive entrance examination to join ENSIAS Rabat (National School of Computer Science and Systems Analysis), one of Morocco’s leading engineering schools in the field of Information and Communication Technologies.\r\n\r\nThis milestone reflected not only my academic dedication but also my determination to pursue excellence in technology and innovation.",
-                               Name = "Software and Information Systems Engineer",
+                               Name = "The National School of Computer Science and Systems Analysis",
                                City = "Rabat",
-                               Country = "Maroc",
+                               Country = "Morocco",
                                Certification = "Diplôme des études universitaires en science et technique (DEUST)",
                                StartDate = new DateTime(2016, 11, 2),
                                EndDate = new DateTime(2019, 06, 1)
@@ -154,7 +154,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 Role = "Full-Stack Software Engineer – Enterprise & E-commerce Platforms",
                                 EntrepriseName = "Akka Technology",
                                 City = "Casablanca",
-                                Country = "Maroc",
+                                Country = "Morocco",
                                 StartDate = new DateTime(2019, 1, 1),
                                 EndDate = new DateTime(2022, 10, 06),
                                 Missions = new List<Mission>
