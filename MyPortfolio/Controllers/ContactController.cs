@@ -31,7 +31,6 @@ namespace MyPortfolio.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(ContactViewModel contact)
         {
-            // Validation manuelle avec FluentValidation
             ValidationResult validationResult = await _validator.ValidateAsync(contact);
 
             if (!validationResult.IsValid)
