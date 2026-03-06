@@ -54,7 +54,6 @@ namespace MyPortfolio.Controllers
 
                 _logger.LogInformation("Email sent successfully to {Email}", contact.SenderEmailAdress);
 
-                TempData["SuccessMessage"] = "Your message has been sent. Thank you!";
                 return RedirectToAction("Confirmation");
             }
             catch (Exception ex)

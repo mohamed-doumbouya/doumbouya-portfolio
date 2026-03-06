@@ -15,14 +15,6 @@
 
         <div class="row gy-4">
             <div class="col-lg-7">
-
-                @if (TempData["SuccessMessage"] != null)
-                {
-                    <div class="alert alert-success">
-                        @TempData["SuccessMessage"]
-                    </div>
-                }
-
                 @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
                 {
                     <div class="alert alert-danger">
