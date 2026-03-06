@@ -124,7 +124,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                                Country = "Guinea",
                                Certification = "Baccalaureat Unique",
                                StartDate = new DateTime(2011, 9, 1),
-                               EndDate = new DateTime(2014, 10, 1)
+                               EndDate = new DateTime(2014, 10, 1),
+                               Website = "https://saintemarieconakry.com/",
+                               LogoUrl = "https://saintemarieconakry.com/gallery_gen/d22af3597611f0eba6e816ffeea92adf_404x138_fit.png?ts=1772534025"
                            },
                            new Education
                            {
@@ -134,7 +136,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                                Country = "Morocco",
                                Certification = "University Diploma in Science and Technology (DEUST)",
                                StartDate = new DateTime(2014, 11, 2),
-                               EndDate = new DateTime(2016, 10, 1)
+                               EndDate = new DateTime(2016, 10, 1),
+                                Website = "https://fst-maroc.com/school/6",
+                                LogoUrl = "https://fst-maroc.com/guest/img/logo/logo.png"
                            },
                            new Education
                            {
@@ -144,7 +148,9 @@ namespace MyPortfolio.Infrastructure.Seeder
                                Country = "Morocco",
                                Certification = "Software engineering and information systems",
                                StartDate = new DateTime(2016, 11, 2),
-                               EndDate = new DateTime(2019, 06, 1)
+                               EndDate = new DateTime(2019, 06, 1),
+                               Website = "https://ensias.um5.ac.ma/",
+                               LogoUrl = "https://ensias.um5.ac.ma/sites/ensias.um5.ac.ma/files/logo5_0.jpg"
                            }
                         },
                         Experiences = new List<Experience>
@@ -157,6 +163,8 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 Country = "Morocco",
                                 StartDate = new DateTime(2019, 1, 1),
                                 EndDate = new DateTime(2022, 10, 06),
+                                CompanyWebsite = "https://www.akkodis.com/fr",
+                                LogoUrl = "https://www.akkodis.com/-/jssmedia/project/akkodis/akkodis/logos/header-rd-logo.png?mw=1920",
                                 Missions = new List<Mission>
                                 {
                                     new Mission
@@ -189,6 +197,8 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 Country = "France",
                                 StartDate = new DateTime(2022, 11, 7),
                                 EndDate = null,
+                                CompanyWebsite = "https://www.groupebpce.com/nos-entreprises/natixis-corporate-investment-banking/",
+                                LogoUrl = "https://www.groupebpce.com/app/uploads/2023/10/image-logo-960x720-GFS-CIB.jpg",
                                 Missions = new List<Mission>
                                 {
                                     new Mission
@@ -290,16 +300,18 @@ namespace MyPortfolio.Infrastructure.Seeder
                         new Testimonial
                         {
                             Author = "Alpha Oumar SOW",
-                            AuthorImage = "~/images/testimonials/testimonials-2.jpg",
+                            AuthorImage = "https://media.licdn.com/dms/image/v2/C4D03AQGRODIPwNg_cg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1519570206906?e=1774483200&v=beta&t=b4mU-rmMK4xaqQaxDJlgeNm8JvjpC1blFPmL99A7yTg",
                             Content = "Incoming",
-                            AuthorProfession = "Consultant Maitrise d'œuvre C#/.NET"
+                            AuthorProfession = "Consultant Maitrise d'œuvre C#/.NET",
+                            LinkedInUrl = "https://www.linkedin.com/in/alpha-oumar-sow-25727111b/"
                         },
                         new Testimonial
                         {
                             Author = "Sekouba TOURE",
-                            AuthorImage = "~/images/testimonials/testimonials-2.jpg",
+                            AuthorImage = "https://media.licdn.com/dms/image/v2/D4E03AQHyNDkeDl9mww/profile-displayphoto-scale_200_200/B4EZyRdkEHHkAg-/0/1771966974139?e=1774483200&v=beta&t=81J-TzNJq2h5llMY6toTzgvyCsQ-1DP7W_UitVLGcwg",
                             Content = "Incoming",
-                            AuthorProfession = "Chief Space Systems engineer"
+                            AuthorProfession = "Chief Space Systems engineer",
+                            LinkedInUrl = "https://www.linkedin.com/in/sekouba-toure-067369118/"
                         }
                     }
                 };
