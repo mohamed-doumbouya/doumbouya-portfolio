@@ -15,36 +15,60 @@
 
         <div class="row gy-4">
             <div class="col-lg-7">
+
+                <!-- Affichage des messages de succès -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                <!-- Affichage des erreurs globales -->
+                @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
+                {
+                    <div class="alert alert-danger">
+                        <strong>Please correct the following errors:</strong>
+                        <ul>
+                            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                            {
+                                <li>@error.ErrorMessage</li>
+                            }
+                        </ul>
+                    </div>
+                }
+
                 <form asp-action="Index" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
                     @Html.AntiForgeryToken()
+
                     <div class="row gy-4">
 
                         <div class="col-md-6">
                             <label asp-for="SenderName" class="pb-2">Your Name</label>
-                            <input asp-for="SenderName" class="form-control" required="">
+                            <input asp-for="SenderName" class="form-control" />
+                            <span asp-validation-for="SenderName" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-6">
                             <label asp-for="SenderEmailAdress" class="pb-2">Your Email</label>
-                            <input asp-for="SenderEmailAdress" class="form-control" required="">
+                            <input asp-for="SenderEmailAdress" class="form-control" />
+                            <span asp-validation-for="SenderEmailAdress" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label asp-for="Subject" class="pb-2">Subject</label>
-                            <input asp-for="Subject" class="form-control" required="">
+                            <input asp-for="Subject" class="form-control" />
+                            <span asp-validation-for="Subject" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12">
                             <label asp-for="Message" class="pb-2">Message</label>
-                            <textarea asp-for="Message" class="form-control" required=""></textarea>
+                            <textarea asp-for="Message" class="form-control" rows="6"></textarea>
+                            <span asp-validation-for="Message" class="text-danger"></span>
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                            <button type="submit">Send Message</button>
+                            <button type="submit" class="btn-submit">Send Message</button>
                         </div>
 
                     </div>
@@ -56,3 +80,7 @@
     </div>
 
 </section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

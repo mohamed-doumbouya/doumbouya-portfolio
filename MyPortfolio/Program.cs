@@ -1,3 +1,4 @@
+using FluentValidation;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MyPortfolio.Domain.Interfaces.Repositories;
@@ -5,6 +6,7 @@ using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models;
 using MyPortfolio.Domain.Services;
 using MyPortfolio.Domain.Settings;
+using MyPortfolio.Domain.Validators;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories;
 using MyPortfolio.Infrastructure.Seeder;
@@ -16,6 +18,10 @@ namespace MyPortfolio
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            #region Model Validation
+            builder.Services.AddValidatorsFromAssemblyContaining<ContactViewModelValidator>();
+            #endregion
 
             #region Configuration Section
             builder.Configuration.AddEnvironmentVariables();
