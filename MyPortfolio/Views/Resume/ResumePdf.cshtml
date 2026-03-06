@@ -1,0 +1,200 @@
+﻿@model MyPortfolio.Domain.Models.ViewModels.ResumeDetailsViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@Model.UserDTO.FirstName @Model.UserDTO.LastName - Resume</title>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.5;
+            padding: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #149ddd;
+            font-size: 28px;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #149ddd;
+            padding-bottom: 8px;
+        }
+
+        h2 {
+            color: #149ddd;
+            font-size: 22px;
+            margin: 25px 0 15px 0;
+            border-left: 5px solid #149ddd;
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #050d18;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 18px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #149ddd;
+        }
+
+            .contact-info p {
+                margin: 5px 0;
+            }
+
+        .summary {
+            font-style: italic;
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .resume-item {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 2px solid #ddd;
+            page-break-inside: avoid;
+        }
+
+        .date {
+            color: #149ddd;
+            font-weight: 600;
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        strong {
+            color: #050d18;
+        }
+    </style>
+</head>
+<body>
+    <h1>@Model.UserDTO.FirstName @Model.UserDTO.LastName</h1>
+
+    <div class="contact-info">
+
+        @if (Model?.UserDTO?.Adress != null)
+        {
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                @Model.UserDTO.Adress.City, @Model.UserDTO.Adress.Country
+            </p>
+        }
+
+        <p>
+            <i class="fa-solid fa-envelope"></i>
+            @Model.UserDTO.Email
+        </p>
+
+        @if (!string.IsNullOrWhiteSpace(Model?.UserDTO?.Phone))
+        {
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                @Model.UserDTO.Phone
+            </p>
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model?.UserDTO?.Website))
+        {
+            <p>
+                <i class="fa-solid fa-globe"></i>
+                <a href="@Model.UserDTO.Website">@Model.UserDTO.Website</a>
+            </p>
+        }
+
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.UserDTO.Summary))
+    {
+        <div class="summary">
+            <p>@Model.UserDTO.Summary</p>
+        </div>
+    }
+
+    @if (Model.ResumeDTO?.Experiences != null && Model.ResumeDTO.Experiences.Any())
+    {
+        <h2>Professional Experience</h2>
+        @foreach (var exp in Model.ResumeDTO.Experiences)
+        {
+            <div class="resume-item">
+                <h3>@exp.Role</h3>
+                <div class="date">
+                    @exp.StartDate.Year -
+                    @(exp.EndDate?.Year.ToString() ?? "Present")
+                </div>
+                <div class="subtitle">@exp.EntrepriseName, @exp.City, @exp.Country</div>
+
+                @if (exp.Missions != null && exp.Missions.Any())
+                {
+                    <ul>
+                        @foreach (var mission in exp.Missions)
+                        {
+                            <li>@mission.Description</li>
+                        }
+                    </ul>
+                }
+            </div>
+        }
+    }
+
+    @if (Model.ResumeDTO?.Educations != null && Model.ResumeDTO.Educations.Any())
+    {
+        <h2>Education</h2>
+        @foreach (var edu in Model.ResumeDTO.Educations)
+        {
+            <div class="resume-item">
+                <h3>@edu.Certification</h3>
+                <div class="date">
+                    @edu.StartDate.Year -
+                    @(edu.EndDate?.Year.ToString() ?? "Present")
+                </div>
+                <div class="subtitle">@edu.Name, @edu.City, @edu.Country</div>
+                <p>@edu.Description</p>
+            </div>
+        }
+    }
+
+    <footer>
+        Generated on @DateTime.Now.ToString("MMMM dd, yyyy")
+    </footer>
+</body>
+</html>

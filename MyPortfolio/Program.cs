@@ -10,6 +10,7 @@ using MyPortfolio.Domain.Validators;
 using MyPortfolio.Infrastructure.Data;
 using MyPortfolio.Infrastructure.Repositories;
 using MyPortfolio.Infrastructure.Seeder;
+using Rotativa.AspNetCore;
 
 namespace MyPortfolio
 {
@@ -91,6 +92,7 @@ namespace MyPortfolio
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseRotativa();
 
             app.UseRouting();
 
