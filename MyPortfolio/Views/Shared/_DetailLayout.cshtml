@@ -54,11 +54,16 @@
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a asp-controller="Home" asp-action="Index" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-                <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-                <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-                <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Projects</a></li>
-                <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+                <!-- Home avec action MVC -->
+                <li><a asp-controller="Home" asp-action="Index" asp-active-by="Index" asp-active-type="action"><i class="bi bi-house navicon"></i>Home</a></li>
+
+                <!-- Ancres avec active-type="anchor" -->
+                <li><a href="#about" asp-active-by="about" asp-active-type="anchor"><i class="bi bi-person navicon"></i> About</a></li>
+                <li><a href="#resume" asp-active-by="resume" asp-active-type="anchor"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+                <li><a href="#portfolio" asp-active-by="portfolio" asp-active-type="anchor"><i class="bi bi-images navicon"></i> Projects</a></li>
+                <li><a href="#services" asp-active-by="services" asp-active-type="anchor"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+
+                <!-- Dropdown (garder tel quel, pas de gestion d'active) -->
                 <li class="dropdown">
                     <a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
@@ -78,7 +83,9 @@
                         <li><a href="#">Dropdown 4</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+
+                <!-- Contact en ancre -->
+                <li><a href="#contact" asp-active-by="contact" asp-active-type="anchor"><i class="bi bi-envelope navicon"></i> Contact</a></li>
             </ul>
         </nav>
 
