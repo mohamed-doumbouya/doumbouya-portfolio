@@ -12,5 +12,7 @@ namespace MyPortfolio.Domain.DTO
         public string City { get; set; }
         public string Country { get; set; }
         public string Description { get; set; }
+        public string? Website { get; set; }
+        public string? LogoUrl { get; internal set; }
     }
 }

@@ -24,6 +24,8 @@ namespace MyPortfolio.Domain.Mappers
             educationDto.Country = education.Country ?? string.Empty;
             educationDto.Name = education.Name;
             educationDto.Id = education.Id;
+            educationDto.Website = education.Website ?? string.Empty;
+            educationDto.LogoUrl = education.LogoUrl ?? string.Empty;
 
             return educationDto;
         }

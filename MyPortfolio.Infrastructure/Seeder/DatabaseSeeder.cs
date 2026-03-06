@@ -132,7 +132,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                                Name = "Faculty of Science and Technology (FST)",
                                City = "Errachidia",
                                Country = "Morocco",
-                               Certification = "Diplôme des Etudes Universitaires en Science et Technique (DEUST)",
+                               Certification = "University Diploma in Science and Technology (DEUST)",
                                StartDate = new DateTime(2014, 11, 2),
                                EndDate = new DateTime(2016, 10, 1)
                            },
@@ -142,7 +142,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                                Name = "The National School of Computer Science and Systems Analysis",
                                City = "Rabat",
                                Country = "Morocco",
-                               Certification = "Diplôme des études universitaires en science et technique (DEUST)",
+                               Certification = "Software engineering and information systems",
                                StartDate = new DateTime(2016, 11, 2),
                                EndDate = new DateTime(2019, 06, 1)
                            }

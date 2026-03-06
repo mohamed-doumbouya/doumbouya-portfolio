@@ -5,7 +5,6 @@
 @model MyPortfolio.Domain.Models.ViewModels.ResumeDetailsViewModel
 
 <!-- Resume Section -->
-
 <section id="resume" class="resume section">
 
     <!-- Section Title -->
@@ -38,30 +37,47 @@
                             </span>
                         </li>
                     </ul>
-                </div><!-- Edn Resume Item -->
+                </div><!-- End Resume Item -->
                 @if (Model.ResumeDTO != null && Model.ResumeDTO.Educations != null && Model.ResumeDTO.Educations.Any())
                 {
                     <h3 class="resume-title">Education</h3>
                     @foreach (var education in Model.ResumeDTO.Educations)
                     {
-                        <div class="resume-item">
-                            <h4>@education.Certification</h4>
-                            <h5>
-                                @education.StartDate.Year - 
-                                @if (@education.EndDate.HasValue)
+                        <div class="resume-item education-item">
+                            <div class="education-header">
+                                @if (!string.IsNullOrEmpty(education.LogoUrl))
                                 {
-                                    @education.EndDate.Value.Year
+                                    <img src="@Url.Content(education.LogoUrl)" class="school-logo" alt="@education.Name logo" />
                                 }
-                                else{
-                                    var message = new string("Present");
-                                    @message
-                                }
-                            </h5>
-                            <p><em>@education.Name, @education.City, @education.Country</em></p>
-                            <p>@education.Description</p>
-                        </div>
+                                <div class="education-title">
+                                    <h4>@education.Certification</h4>
+                                    <h5>
+                                        @education.StartDate.Year -
+                                        @(education.EndDate?.Year.ToString() ?? "Present")
+                                    </h5>
+                                </div>
+                            </div>
 
-                        <!-- Edn Resume Item -->
+                            <p class="school-name">
+                                <em>
+                                    @education.Name, @education.City, @education.Country
+                                </em>
+                                @if (!string.IsNullOrEmpty(education.Website))
+                                {
+                                    <a href="@education.Website" target="_blank" rel="noopener noreferrer"
+                                       class="school-website" title="Visit official website">
+                                        <i class="bi bi-box-arrow-up-right"></i>
+                                        <span class="website-text">Official Website</span>
+                                    </a>
+                                }
+                            </p>
+
+                            @if (!string.IsNullOrEmpty(education.Description))
+                            {
+                                <p>@education.Description</p>
+                            }
+                        </div>
+                        <!-- End Resume Item -->
                     }
                 }
             </div>
@@ -72,21 +88,28 @@
                     <h3 class="resume-title">Professional Experience</h3>
                     @foreach (var experience in Model.ResumeDTO.Experiences)
                     {
-                        <div class="resume-item">
-                            <h4>@experience.Role</h4>
-                            <h5>
-                                @experience.StartDate.Year - 
-                                @if (@experience.EndDate.HasValue)
+                        <div class="resume-item experience-item">
+                            <div class="experience-header">
+                                <h4>@experience.Role</h4>
+                                <h5>
+                                    @experience.StartDate.Year -
+                                    @(experience.EndDate?.Year.ToString() ?? "Present")
+                                </h5>
+                            </div>
+
+                            <p class="company-name">
+                                <em>@experience.EntrepriseName, @experience.City, @experience.Country</em>
+@*                                 @if (!string.IsNullOrEmpty(experience.CompanyWebsite))
                                 {
-                                    @experience.EndDate.Value.Year
-                                }
-                                else{
-                                    var message = new string("Present");
-                                    @message
-                                }
-                            </h5>
-                            <p><em>@experience.EntrepriseName, @experience.City, @experience.Country </em></p>
-                            @if(experience.Missions != null){
+                                    <a href="@experience.CompanyWebsite" target="_blank" rel="noopener noreferrer"
+                                       class="company-website" title="Visit company website">
+                                        <i class="bi bi-building"></i>
+                                    </a>
+                                } *@
+                            </p>
+
+                            @if (experience.Missions != null && experience.Missions.Any())
+                            {
                                 <ul>
                                     @foreach (var mission in experience.Missions)
                                     {
@@ -95,10 +118,8 @@
                                 </ul>
                             }
                         </div>
-
-                        <!-- Edn Resume Item -->
+                        <!-- End Resume Item -->
                     }
-
                 </div>
             }
 
@@ -107,6 +128,4 @@
     </div>
 
 </section>
-
 <!-- /Resume Section -->
-

@@ -1324,3 +1324,248 @@ section,
 .btn-return:hover {
     background-color: #084298;
 }
+
+/* Resume section styling */
+.resume .resume-title {
+    color: var(--heading-color);
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.resume .resume-item {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid var(--accent-color);
+    position: relative;
+}
+
+    .resume .resume-item::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50px;
+        left: -9px;
+        top: 0;
+        background: var(--surface-color);
+        border: 2px solid var(--accent-color);
+    }
+
+    .resume .resume-item h4 {
+        line-height: 18px;
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--heading-color);
+        margin-bottom: 8px;
+    }
+
+    .resume .resume-item h5 {
+        font-size: 16px;
+        background: rgba(20, 157, 221, 0.1);
+        padding: 5px 15px;
+        display: inline-block;
+        font-weight: 500;
+        margin-bottom: 10px;
+        border-radius: 50px;
+        color: var(--accent-color);
+    }
+
+    .resume .resume-item ul {
+        padding-left: 20px;
+    }
+
+        .resume .resume-item ul li {
+            padding-bottom: 10px;
+        }
+
+    .resume .resume-item:last-child {
+        padding-bottom: 0;
+    }
+
+/* Education specific styling */
+.education-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.school-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid rgba(20, 157, 221, 0.2);
+}
+
+.education-title {
+    flex: 1;
+}
+
+    .education-title h4 {
+        margin-bottom: 5px;
+    }
+
+.school-name {
+    margin: 5px 0 10px 0;
+    font-style: italic;
+    color: var(--default-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.school-website {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    background: rgba(20, 157, 221, 0.08);
+    border-radius: 20px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-style: normal;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+    .school-website:hover {
+        background: var(--accent-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 3px 10px rgba(20, 157, 221, 0.3);
+    }
+
+    .school-website i {
+        font-size: 0.9rem;
+    }
+
+/* Experience specific styling */
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+    .experience-header h4 {
+        margin-bottom: 0;
+    }
+
+.company-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    color: var(--default-color);
+}
+
+.company-website {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(20, 157, 221, 0.08);
+    border-radius: 50%;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    .company-website:hover {
+        background: var(--accent-color);
+        color: white;
+        transform: scale(1.1);
+    }
+
+    .company-website i {
+        font-size: 1rem;
+    }
+
+/* Download button styling */
+.download-resume-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.4s ease;
+    border: 2px solid var(--accent-color);
+    margin-top: 15px;
+}
+
+    .download-resume-btn:hover {
+        background: transparent;
+        color: var(--accent-color);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(20, 157, 221, 0.3);
+    }
+
+    .download-resume-btn i {
+        font-size: 1.2rem;
+    }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .school-logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .school-website .website-text {
+        display: none;
+    }
+
+    .school-website {
+        padding: 4px 8px;
+    }
+
+        .school-website i {
+            margin: 0;
+        }
+
+    .download-resume-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Print styles for PDF */
+@media print {
+    .download-resume-btn,
+    .school-website,
+    .company-website {
+        display: none !important;
+    }
+
+    .school-logo {
+        filter: grayscale(100%);
+        box-shadow: none;
+    }
+}
