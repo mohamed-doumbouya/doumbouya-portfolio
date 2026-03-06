@@ -7,11 +7,11 @@
 <div class="portfolio-details-page">
     <div class="page-title dark-background">
         <div class="container d-lg-flex justify-content-between align-items-center">
-            <h1 class="mb-2 mb-lg-0">Portfolio Details</h1>
+            <h1 class="mb-2 mb-lg-0">Project Details</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a asp-controller="Projects" asp-action="Index">Portfolio</a></li>
-                    <li class="current">Portfolio Details</li>
+                    <li><a asp-controller="Projects" asp-action="Index">Project</a></li>
+                    <li class="current">Project Details</li>
                 </ol>
             </nav>
         </div>
@@ -63,6 +63,10 @@
                             @if (@Model.EndDate.HasValue)
                             {
                                 <li><strong>Project end date</strong>: @Model.EndDate.Value.ToString()</li>
+                            }
+                            else
+                            {
+                                <li><strong>Project end date</strong>: In progress</li>
                             }
                             <li><strong>Project URL</strong>: <a href="@Model.ProjectURL" target="_blank"> View the projet website</a></li>
                         </ul>
