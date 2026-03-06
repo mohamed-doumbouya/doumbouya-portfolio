@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyPortfolio.Domain.Models
 {
@@ -16,6 +16,9 @@ namespace MyPortfolio.Domain.Models
         public string? City { get; set; }
         public string? Country { get; set; }
         public string? Role { get; set; }
+        public string? CompanyWebsite { get; set; }
+        public string? LogoUrl { get; set; }
+
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
 

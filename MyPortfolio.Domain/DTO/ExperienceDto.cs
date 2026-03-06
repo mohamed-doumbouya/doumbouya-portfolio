@@ -11,6 +11,8 @@ namespace MyPortfolio.Domain.DTO
         public string City { get; set; }
         public string Country { get; set; }
         public string Role { get; set; }
+        public string? CompanyWebsite { get; set; }
+        public string? LogoUrl { get; set; }
         public IEnumerable<MissionDto> Missions { get; set; }
     }
 }

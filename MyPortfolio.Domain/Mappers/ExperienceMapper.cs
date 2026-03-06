@@ -22,6 +22,8 @@ namespace MyPortfolio.Domain.Mappers
             experienceDto.City = experience.City ?? string.Empty;
             experienceDto.Role = experience.Role ?? string.Empty;
             experienceDto.Country = experience.Country ?? string.Empty;
+            experienceDto.CompanyWebsite = experience.CompanyWebsite ?? string.Empty;
+            experienceDto.LogoUrl = experience.LogoUrl ?? string.Empty;
             experienceDto.Missions = experience.Missions.ConvertToMissionDtoList();
 
             return experienceDto;

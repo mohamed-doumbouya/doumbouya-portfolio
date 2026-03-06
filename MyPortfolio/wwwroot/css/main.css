@@ -1385,14 +1385,14 @@ section,
     }
 
 /* Education specific styling */
-.education-header {
+.company-header, .education-header {
     display: flex;
     align-items: center;
     gap: 15px;
     margin-bottom: 10px;
 }
 
-.school-logo {
+.company-logo, .school-logo {
     width: 50px;
     height: 50px;
     object-fit: contain;
@@ -1403,15 +1403,15 @@ section,
     border: 1px solid rgba(20, 157, 221, 0.2);
 }
 
-.education-title {
+.company-title, .education-title {
     flex: 1;
 }
 
-    .education-title h4 {
-        margin-bottom: 5px;
-    }
+.company-title h4, .education-title h4 {
+    margin-bottom: 5px;
+}
 
-.school-name {
+.company-name, .school-name {
     margin: 5px 0 10px 0;
     font-style: italic;
     color: var(--default-color);
@@ -1421,7 +1421,7 @@ section,
     gap: 10px;
 }
 
-.school-website {
+.company-website, .school-website {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -1436,61 +1436,16 @@ section,
     border: 1px solid transparent;
 }
 
-    .school-website:hover {
-        background: var(--accent-color);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 3px 10px rgba(20, 157, 221, 0.3);
-    }
-
-    .school-website i {
-        font-size: 0.9rem;
-    }
-
-/* Experience specific styling */
-.experience-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 8px;
+.company-website:hover, .school-website:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(20, 157, 221, 0.3);
 }
 
-    .experience-header h4 {
-        margin-bottom: 0;
-    }
-
-.company-name {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    color: var(--default-color);
+.company-website i, .school-website i {
+    font-size: 0.9rem;
 }
-
-.company-website {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    background: rgba(20, 157, 221, 0.08);
-    border-radius: 50%;
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-    .company-website:hover {
-        background: var(--accent-color);
-        color: white;
-        transform: scale(1.1);
-    }
-
-    .company-website i {
-        font-size: 1rem;
-    }
 
 /* Download button styling */
 .download-resume-btn {
@@ -1509,33 +1464,28 @@ section,
     margin-top: 15px;
 }
 
-    .download-resume-btn:hover {
-        background: transparent;
-        color: var(--accent-color);
-        transform: translateY(-3px);
-        box-shadow: 0 5px 20px rgba(20, 157, 221, 0.3);
-    }
+.download-resume-btn:hover {
+    background: transparent;
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(20, 157, 221, 0.3);
+}
 
-    .download-resume-btn i {
-        font-size: 1.2rem;
-    }
+.download-resume-btn i {
+    font-size: 1.2rem;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .education-header {
+    .company-header, .education-header {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
 
-    .school-logo {
+    .company-logo, .school-logo {
         width: 40px;
         height: 40px;
-    }
-
-    .experience-header {
-        flex-direction: column;
-        align-items: flex-start;
     }
 
     .school-website .website-text {
@@ -1546,9 +1496,9 @@ section,
         padding: 4px 8px;
     }
 
-        .school-website i {
-            margin: 0;
-        }
+    .school-website i {
+        margin: 0;
+    }
 
     .download-resume-btn {
         width: 100%;
@@ -1564,7 +1514,7 @@ section,
         display: none !important;
     }
 
-    .school-logo {
+    .company-logo, .school-logo {
         filter: grayscale(100%);
         box-shadow: none;
     }

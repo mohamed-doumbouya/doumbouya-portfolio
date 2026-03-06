@@ -88,24 +88,37 @@
                     <h3 class="resume-title">Professional Experience</h3>
                     @foreach (var experience in Model.ResumeDTO.Experiences)
                     {
-                        <div class="resume-item experience-item">
-                            <div class="experience-header">
-                                <h4>@experience.Role</h4>
-                                <h5>
-                                    @experience.StartDate.Year -
-                                    @(experience.EndDate?.Year.ToString() ?? "Present")
-                                </h5>
+                        <div class="resume-item education-item">
+                            <div class="company-header">
+                                @if (!string.IsNullOrEmpty(experience.LogoUrl))
+                                {
+                                    <img src="@Url.Content(experience.LogoUrl)" class="company-logo" alt="@experience.EntrepriseName logo" />
+                                }
+                                <div class="company-title">
+                                    <h4>@experience.Role</h4>
+                                    <h5>
+                                        @experience.StartDate.Year -
+                                        @if (experience.EndDate.HasValue)
+                                        {
+                                            @experience.EndDate.Value.Year
+                                        }
+                                        else
+                                        {
+                                            <span>Present</span>
+                                        }
+                                    </h5>
+                                </div>
                             </div>
 
-                            <p class="company-name">
+                            <p class="company-info">
                                 <em>@experience.EntrepriseName, @experience.City, @experience.Country</em>
-@*                                 @if (!string.IsNullOrEmpty(experience.CompanyWebsite))
+                                @if (!string.IsNullOrEmpty(experience.CompanyWebsite))
                                 {
                                     <a href="@experience.CompanyWebsite" target="_blank" rel="noopener noreferrer"
-                                       class="company-website" title="Visit company website">
+                                       class="company-link" title="Visit company website">
                                         <i class="bi bi-building"></i>
                                     </a>
-                                } *@
+                                }
                             </p>
 
                             @if (experience.Missions != null && experience.Missions.Any())
@@ -122,7 +135,6 @@
                     }
                 </div>
             }
-
         </div>
 
     </div>
