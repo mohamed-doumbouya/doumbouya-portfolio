@@ -8,9 +8,10 @@ namespace MyPortfolio.Infrastructure.Seeder
 {
     public static class DatabaseSeeder
     {
-        public static async Task SeedUserAsync(UserManager<ApplicationUser> userManager)
+        public static async Task SeedUserAsync(UserManager<ApplicationUser> userManager, string? username, string? password)
         {
-            var email = "integredoumbouya@gmail.com";
+            var email = username ?? string.Empty;
+            var pass = password ?? string.Empty;
             var adminUser = await userManager.FindByEmailAsync(email);
 
             if (adminUser == null)
@@ -249,7 +250,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                                 Name = "Empire Mandingue Schools"
                             },
                             ProjectURL = "www.example.com",
-                            ImageUrl = "~/images/portfolio/empire-manding.png",
+                            ImageUrl = "~/images/portfolio/branding-empire-manding.png",
                             Client = "ASU Company",
                             Title = "Redefining Educational Excellence in West Africa",
                             Name = "Project information",
@@ -316,7 +317,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                     }
                 };
 
-                await userManager.CreateAsync(adminUser, "Admin123!");
+                await userManager.CreateAsync(adminUser, pass);
             }
 
             if (!await userManager.IsInRoleAsync(adminUser, "Admin"))

@@ -78,8 +78,15 @@ namespace MyPortfolio
                 var userManager = scope.ServiceProvider.GetService<UserManager<ApplicationUser>>();
                 var roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
 
+                if (userManager == null || roleManager == null)
+                {
+                    throw new ArgumentNullException("UserManager or RoleManager is not available.");
+                }
+
+                var username = builder.Configuration["AdminCredentials:Username"];
+                var password = builder.Configuration["AdminCredentials:Password"];
                 DatabaseSeeder.SeedRoleAsync(roleManager).Wait();
-                DatabaseSeeder.SeedUserAsync(userManager).Wait();
+                DatabaseSeeder.SeedUserAsync(userManager, username, password).Wait();
             }
 
             // Configure the HTTP request pipeline.
