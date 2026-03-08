@@ -12,8 +12,29 @@
     </div>
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
-
         <div class="row gy-4">
+            <div class="col-lg-5">
+
+                <div class="info-wrap">
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-geo-alt flex-shrink-0"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Tour BPCE, Paris Est, France</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-telephone flex-shrink-0"></i>
+                        <div>
+                            <h3>Call me</h3>
+                            <p>+33 7 63 96 00 28</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.7479910727225!2d2.3829189!3d48.82486959999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e673c344e5140f%3A0x64bd1f1dc5f2b456!2sTour%20BPCE%20Est!5e0!3m2!1sfr!2sfr!4v1772984876352!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
+            </div>
+
             <div class="col-lg-7">
                 @if (!ViewData.ModelState.IsValid && ViewData.ModelState.ErrorCount > 0)
                 {
@@ -60,15 +81,11 @@
                         <div class="col-md-12 text-center">
                             <button type="submit" class="btn-submit">Send Message</button>
                         </div>
-
                     </div>
                 </form>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 @section Scripts {
