@@ -35,7 +35,7 @@ namespace MyPortfolio.Infrastructure.Seeder
                     UserName = email,
                     Birthday = new DateTime(1994, 9, 16),
                     Degree = "Software and Information Systems Engineer",
-                    Website = "https://mdoumbouya-tech-bkfgczhubdeheng6.westeurope-01.azurewebsites.net/",
+                    Website = "https://mdoumbouya-universe.com/",
                     PhoneNumber = "+33 7 63 96 00 28",
                     Profession = "SoftWare Engineer",
                     FreelanceAvailable = false,
