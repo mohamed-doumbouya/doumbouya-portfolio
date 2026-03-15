@@ -11,8 +11,8 @@ namespace MyPortfolio.Domain.DTO
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Degree { get; set; }
-        public DateTime Birthday { get; set; }
-        public int Age { get; set; }
+        public DateTime? Birthday { get; set; }
+        public int? Age { get; set; }
         public string Freelance { get; set; }
         public string Profession { get; set; }
         public string Summary { get; set; }

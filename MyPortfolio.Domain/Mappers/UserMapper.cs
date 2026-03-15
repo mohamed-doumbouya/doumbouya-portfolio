@@ -24,11 +24,10 @@ namespace MyPortfolio.Domain.Mappers
             userDto.Website = user.Website ?? string.Empty;
             userDto.Email = user.Email ?? string.Empty;
             userDto.Degree = user.Degree ?? string.Empty;
-            userDto.Birthday = user.Birthday;
             userDto.Phone = user.PhoneNumber ?? string.Empty;
             userDto.Profession = user.Profession ?? string.Empty;
             userDto.Summary = user.Summary ?? string.Empty;
-            userDto.Freelance = user.FreelanceAvailable ? "Disponible" : "Indisponible";
+            userDto.Freelance = user.FreelanceAvailable ? "Available" : "Unavailable";
             userDto.Adress = new AddressDto
             {
                 City = adress?.City ?? string.Empty,
@@ -36,10 +35,13 @@ namespace MyPortfolio.Domain.Mappers
             };
 
             var birthDate = userDto.Birthday;
-            userDto.Age = DateTime.Now.Year - birthDate.Year;
-            if (birthDate > DateTime.Now.AddYears(-userDto.Age))
+            if (birthDate.HasValue)
             {
-                userDto.Age--;
+                userDto.Age = DateTime.Now.Year - birthDate.Value.Year;
+                if (birthDate > DateTime.Now.AddYears(-userDto.Age.Value))
+                {
+                    userDto.Age--;
+                }
             }
 
             return userDto;

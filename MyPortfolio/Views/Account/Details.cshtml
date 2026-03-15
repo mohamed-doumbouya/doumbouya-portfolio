@@ -42,16 +42,12 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <ul>
-                            <li> <strong>Birthday:</strong> <span>@Model.Birthday.ToString("dd/MM/yyyy")</span></li>
-@*                             <li> <strong>Website:</strong> <span>@Model.Website</span></li>
- *@                            <li> <strong>Phone:</strong> <span>@Model.Phone</span></li>
+                            <li> <strong>Degree:</strong> <span>@Model.Degree</span></li>
                             <li> <strong>City:</strong> <span>@string.Concat(Model.Adress?.City, ", ", Model.Adress?.Country)</span></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
                         <ul>
-                            <li> <strong>Age:</strong> <span>@Model.Age</span></li>
-                            <li> <strong>Degree:</strong> <span>@Model.Degree</span></li>
                             <li>
                                  <strong>Email:</strong> <span>
                                     <a href="mailto:@Model.Email">
