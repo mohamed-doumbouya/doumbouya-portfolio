@@ -2,7 +2,6 @@
 using MyPortfolio.Domain.Interfaces.Services;
 using MyPortfolio.Domain.Models.ViewModels;
 using Rotativa.AspNetCore;
-using Rotativa.AspNetCore.Options;
 using Size = Rotativa.AspNetCore.Options.Size;
 
 namespace MyPortfolio.Controllers
@@ -44,20 +43,30 @@ namespace MyPortfolio.Controllers
         {
             var user = await _userService.GetUserAsync();
             if (user == null)
-            {
                 return NotFound();
+
+            var filePath = Path.Combine(Path.GetTempPath(), $"resume_{user.LastName.ToLower()}.pdf");
+            if (!System.IO.File.Exists(filePath))
+            {
+                var resume = await _resumeService.GetResumeAsync().ConfigureAwait(false);
+
+                var vm = new ResumeDetailsViewModel
+                {
+                    UserDTO = user,
+                    ResumeDTO = resume
+                };
+
+                var pdf = new ViewAsPdf("ResumePdf", vm)
+                {
+                    PageSize = Size.A4
+                };
+
+                var bytes = await pdf.BuildFile(ControllerContext);
+
+                await System.IO.File.WriteAllBytesAsync(filePath, bytes);
             }
 
-            var resume = await _resumeService.GetResumeAsync().ConfigureAwait(false);
-
-            var vm = new ResumeDetailsViewModel { UserDTO = user, ResumeDTO = resume };
-
-            return new ViewAsPdf("ResumePdf", vm)
-            {
-                FileName = $"resume_{user.LastName}.pdf",
-                PageSize = Size.A4,
-                PageMargins = new Margins(10, 15, 10, 15)
-            };
+            return PhysicalFile(filePath, "application/pdf", $"resume_{user.LastName.ToLower()}.pdf");
         }
     }
 }
