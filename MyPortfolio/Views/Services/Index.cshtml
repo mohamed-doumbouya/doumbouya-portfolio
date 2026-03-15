@@ -17,9 +17,28 @@
                 @foreach (var service in Model.Services)
                 {
                     <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-                        <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+                        <div class="icon flex-shrink-0">
+                            @* Choisir une icône adaptée selon le service *@
+                            @{
+                                var iconClass = service.Title switch
+                                {
+                                    "Technology & Software Architecture Advisory" => "bi-tools",
+                                    "Online Software Engineering Training & Mentorship" => "bi-laptop",
+                                    "Digital Education Strategy & Innovation Consulting" => "bi-lightbulb",
+                                    "Financial Systems & Data Processing Engineering" => "bi-bar-chart-line",
+                                    "Tech & Digital Transformation Speaker" => "bi-mic",
+                                    _ => "bi-briefcase"
+                                };
+                            }
+                            <i class="bi @iconClass"></i>
+                        </div>
+
                         <div>
-                            <h4 class="title"><a asp-controller="Services" asp-action="Details" asp-route-id="@service.Id" class="stretched-link">@service.Title</a></h4>
+                            <h4 class="title">
+                                <a asp-controller="Services" asp-action="Details" asp-route-id="@service.Id" class="stretched-link">
+                                    @service.Title
+                                </a>
+                            </h4>
                             <p class="description">@service.Summary</p>
                         </div>
                     </div>
@@ -27,7 +46,6 @@
                 }
             </div>
         }
-
     </div>
 </section>
 
