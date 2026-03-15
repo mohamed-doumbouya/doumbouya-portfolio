@@ -20,7 +20,8 @@ namespace MyPortfolio.Controllers
             _logger.LogInformation("Get user informations ...");
             UserInfoViewModel userInfo = new UserInfoViewModel();
             userInfo.UserDTO = await _userService.GetUserAsync();
-
+            var careerStartDate = 2019;
+            userInfo.YearsOfExperience = DateTime.Today.Year - careerStartDate;
             return View(userInfo);
         }
     }
