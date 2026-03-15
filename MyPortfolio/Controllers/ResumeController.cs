@@ -48,7 +48,7 @@ namespace MyPortfolio.Controllers
                 return NotFound();
             }
 
-            var resume = await _resumeService.GetResumeAsync();
+            var resume = await _resumeService.GetResumeAsync().ConfigureAwait(false);
 
             var vm = new ResumeDetailsViewModel { UserDTO = user, ResumeDTO = resume };
 
