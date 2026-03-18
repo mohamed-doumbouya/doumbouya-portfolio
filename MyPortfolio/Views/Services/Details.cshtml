@@ -1,8 +1,9 @@
-﻿@{
+﻿@model MyPortfolio.Domain.DTO.ServiceDto
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Service details";
+    ViewData["Title"] = $"{Model.Title}";
 }
-@model MyPortfolio.Domain.DTO.ServiceDto
 
 
 <div class="service-details-page">

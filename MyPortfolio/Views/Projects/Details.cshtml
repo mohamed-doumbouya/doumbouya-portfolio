@@ -1,8 +1,9 @@
-﻿@{
+﻿@model MyPortfolio.Domain.DTO.ProjectDto
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Project details";
+    ViewData["Title"] = $"{Model.Name} - {Model.Category} Project in Guinea";
 }
-@model MyPortfolio.Domain.DTO.ProjectDto
+
 
 <div class="portfolio-details-page">
     <div class="page-title dark-background">
