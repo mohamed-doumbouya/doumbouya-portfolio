@@ -22,6 +22,7 @@ namespace MyPortfolio.Controllers
         }
 
         [HttpGet]
+        [Route("contact")]
         public IActionResult Index()
         {
             return View(new ContactViewModel());

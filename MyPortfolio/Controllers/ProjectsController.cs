@@ -13,6 +13,7 @@ namespace MyPortfolio.Controllers
             _projectService = projectService;
         }
 
+        [Route("projects")]
         public async Task<IActionResult> Index()
         {
             IEnumerable<ProjectDto> projects = await _projectService.GetProjectsAsync();
@@ -21,8 +22,8 @@ namespace MyPortfolio.Controllers
 
         public async Task<IActionResult> Details(int Id)
         {
-           ProjectDto? project = await _projectService.GetProjectByIdAsync(Id);
-           if(project == null)
+            ProjectDto? project = await _projectService.GetProjectByIdAsync(Id);
+            if (project == null)
             {
                 return NotFound();
             }

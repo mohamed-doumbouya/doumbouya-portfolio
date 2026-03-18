@@ -22,6 +22,7 @@ namespace MyPortfolio.Controllers
             return View();
         }
 
+        [Route("resume")]
         public async Task<IActionResult> Details()
         {
             var user = await _userService.GetUserAsync();

@@ -16,6 +16,7 @@ namespace MyPortfolio.Controllers
             _testimonialService = testimonialService;
         }
 
+        [Route("services")]
         public async Task<IActionResult> Index()
         {
             var serviceViewModel = new ServiceViewModel();
